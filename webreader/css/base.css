@@ -90,6 +90,7 @@
 		.nav_title
 		{
 			position: absolute;
+			height: 50px;
 			background: none;
 			border: none;
 			left: 7px;
@@ -97,6 +98,7 @@
 			line-height: 50px;
 			color: #fff;
 			font-size: 14px;
+			outline: none;
 		}
 		.bottom_btn
 		{

@@ -1,6 +1,6 @@
 (function(){
 	// 锁定body的高度
-	$('body').css('height',screen.availHeight +'px');
+	$('#root').css('height',screen.availHeight +'px');
 	var util = (function(){
 		var prefix = "html5_reader_";
 		var storageGetter = function(key){
@@ -24,6 +24,7 @@
 		content : $("#chapter_content")
 	};
 	function main(){
+		readerBaseFrame();
 		eventHandler();
 	}
 	function readerModel(){}
@@ -31,10 +32,25 @@
 	function readerBaseFrame(){
 		$('.bottom_btn .fontset').removeClass('fontset_active');
 		Dom.setNav.hide();
+
+		// bottom_nav click handler button
+		function active( obj ){
+			obj.mousedown(function(){
+				$(this).addClass('bot_active');
+			});
+			obj.mouseup(function(){
+				var _this = $(this);
+				setTimeout(function(){
+					//注意这里就不能直接使用this，因为这里的作用域已经发送变法
+					_this.removeClass('bot_active');
+				},350);
+			});
+		}
+		active( $('.bottom_btn li span') );
+		active( $('.top_nav .nav_title') );
 	}
 
-	function eventHandler(){
-		
+	function eventHandler(){	
 		// 交互事件的绑定
 		$("#model_action .mid_action").click(function(){		
 			readerBaseFrame();
@@ -45,16 +61,6 @@
 				Dom.topNav.hide();
 				Dom.botNav.hide();
 			}
-		});
-
-		// bottom_nav click handler
-		$('.bottom_btn li span').mousedown(function(){
-			$(this).addClass('bot_active');
-		});
-		$('.bottom_btn li span').mouseup(function(){
-			setTimeout(function(){
-				$('.bottom_btn li span').removeClass('bot_active');
-			},350);
 		});
 		//font_set************************
 		$('.bottom_btn .fontset').click(function(){
@@ -69,6 +75,7 @@
 		});
 		//readtype_set************************
 		$('.bottom_btn .readtype').click(function(){
+			readerBaseFrame();
 			if( $(this).hasClass('readtype_day') ){
 				$(this).removeClass('readtype_day');
 				$(this).html('夜间');
