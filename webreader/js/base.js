@@ -39,9 +39,9 @@
 		Dom.initTitleSize = parseInt( util.storageGetter('h4FontSize') );
 		Dom.initContentSize = parseInt( util.storageGetter('contentFontSize') );
 		Dom.initLineHeight = parseInt( util.storageGetter('lineHeight') );
-		Dom.h4.css('fontSize', Dom.initTitleSize + 'px');
-		Dom.content.css('fontSize', Dom.initContentSize + 'px');
-		Dom.lineHeight.css('lineHeight', Dom.initLineHeight + 'px');
+		Dom.h4.css('font-size', Dom.initTitleSize + 'px');
+		Dom.content.css('font-size', Dom.initContentSize + 'px');
+		Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
 		//初始化背景模块
 		var getbg = util.storageGetter( 'rootBg');
 		var getcolor = util.storageGetter( 'contentColor' );
@@ -144,9 +144,9 @@
 						Dom.fontInfo.hide();
 					},1000);
 				}
-				Dom.h4.css('fontSize', Dom.initTitleSize + 'px');
-				Dom.content.css('fontSize', Dom.initContentSize + 'px');
-				Dom.lineHeight.css('lineHeight', Dom.initLineHeight + 'px');
+				Dom.h4.css('font-size', Dom.initTitleSize + 'px');
+				Dom.content.css('font-size', Dom.initContentSize + 'px');
+				Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
 				
 				util.storageSetter( 'h4FontSize',Dom.initTitleSize);
 				util.storageSetter( 'contentFontSize',Dom.initContentSize);
@@ -184,12 +184,12 @@
 			if( $(this).hasClass('readtype_day') ){
 				$(this).removeClass('readtype_day');
 				$(this).html('夜间');
-				Dom.root.css('backgroundColor','rgb(233, 223, 199)');
+				Dom.root.css('background-color','rgb(233, 223, 199)');
 				Dom.content.css('color','rgb(0, 0, 0)');
 			}else{
 				$(this).addClass('readtype_day');
 				$(this).html('昼间');
-				Dom.root.css('backgroundColor','rgb(15, 20, 16)');
+				Dom.root.css('background-color','rgb(15, 20, 16)');
 				Dom.content.css('color','rgb(78, 83, 79)');
 			}	
 		});
