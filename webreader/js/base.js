@@ -184,8 +184,14 @@
 			if( $(this).hasClass('readtype_day') ){
 				$(this).removeClass('readtype_day');
 				$(this).html('夜间');
-				Dom.root.css('background-color','rgb(233, 223, 199)');
-				Dom.content.css('color','rgb(0, 0, 0)');
+				//在切换时需要重新设定背景和字色，如果用户有设置那么就取用设置值
+				if( util.storageGetter( 'rootBg') != 'undefined' ){
+					Dom.root.css('background-color',util.storageGetter( 'rootBg'));
+					Dom.content.css('color',util.storageGetter( 'contentColor'));
+				}else{
+					Dom.root.css('background-color','rgb(233, 223, 199)');
+					Dom.content.css('color','rgb(0, 0, 0)');
+				}
 			}else{
 				$(this).addClass('readtype_day');
 				$(this).html('昼间');
