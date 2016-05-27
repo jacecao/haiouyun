@@ -35,18 +35,22 @@
 		eventHandler();
 	}
 	function readerModel(){
-		//初始化字体模块
-		Dom.initTitleSize = parseInt( util.storageGetter('h4FontSize') );
-		Dom.initContentSize = parseInt( util.storageGetter('contentFontSize') );
-		Dom.initLineHeight = parseInt( util.storageGetter('lineHeight') );
-		Dom.h4.css('font-size', Dom.initTitleSize + 'px');
-		Dom.content.css('font-size', Dom.initContentSize + 'px');
-		Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
-		//初始化背景模块
-		var getbg = util.storageGetter( 'rootBg');
-		var getcolor = util.storageGetter( 'contentColor' );
-		Dom.content.css('color',getcolor);
-		Dom.root.css('background-color',getbg);
+		if( util.storageGetter('h4FontSize') != 'undefined' )
+		{
+			//初始化字体模块
+			Dom.initTitleSize = parseInt( util.storageGetter('h4FontSize') );
+			Dom.initContentSize = parseInt( util.storageGetter('contentFontSize') );
+			Dom.initLineHeight = parseInt( util.storageGetter('lineHeight') );
+			Dom.h4.css('font-size', Dom.initTitleSize + 'px');
+			Dom.content.css('font-size', Dom.initContentSize + 'px');
+			Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
+			//初始化背景模块
+			var getbg = util.storageGetter( 'rootBg');
+			var getcolor = util.storageGetter( 'contentColor' );
+			Dom.content.css('color',getcolor);
+			Dom.root.css('background-color',getbg);
+		}
+		
 				
 	}
 
@@ -168,11 +172,11 @@
 			// 背景设置
 			$('.bg_type').click(function(){
 				var bg = $(this).css('background-color');
-				if( bg == 'rgb(85, 85, 85)')
+				if( bg == 'rgb(85, 85, 85)' )
 				{
 					Dom.content.css('color','#a3a3a3');
 				}else{
-					Dom.content.css('color','#555');
+					Dom.content.css('color','rgb(0, 0, 0)');
 				}
 				Dom.root.css('background-color',bg);
 				util.storageSetter( 'rootBg',bg);
@@ -196,7 +200,7 @@
 				$(this).addClass('readtype_day');
 				$(this).html('昼间');
 				Dom.root.css('background-color','rgb(15, 20, 16)');
-				Dom.content.css('color','rgb(78, 83, 79)');
+				Dom.content.css('color','rgb(0, 0, 0)');
 			}	
 		});
 
