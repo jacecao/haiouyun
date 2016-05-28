@@ -28,6 +28,7 @@
 			getJSONP : getJSONP
 		};
 	})();
+
 	var Dom = {
 		win : $(window),
 		doc : $(document),
@@ -35,15 +36,17 @@
 		botNav : $("#bottom_nav"),
 		setNav : $(".font_control"),
 		root : $("#root"),
-		h4 : $("#chapter_content h4"),
+		h4 : '',
 		content : $("#chapter_content"),
-		lineHeight : $('#chapter_content p'),
+		lineHeight : '',
 		fontInfo : $('#font_info'),
 		initTitleSize: 20,
 		initContentSize: 14,
 		initLineHeight: 24
 	};
+	
 	var dataModel,readerUI;
+
 	function main(){
 		readerBaseFrame();
 		dataModel = readerModel();
@@ -54,6 +57,7 @@
 			});
 		eventHandler();
 	}
+
 	function readerModel(){		
 		var chapter_ID;
 		var chapter_length;
@@ -123,6 +127,7 @@
 		}
 
 		return function( data ){
+
 			contentbox.html( parseChapterDta( data ) );
 			// 锁定父体的高度
 			if( $('#root').offset().height < screen.availHeight)
@@ -132,21 +137,26 @@
 			//获取阅读器设置样式信息 并更新DOM
 			Dom.h4 = $("#chapter_content h4");
 			Dom.lineHeight = $('#chapter_content p');
-			if( util.storageGetter('h4FontSize') != 'undefined' )
+			// console.log(util.storageGetter('h4FontSize'));
+			if( util.storageGetter('h4FontSize') ) //注意这里即使没有设定 h4FontSize 那么返回的不是undefined而是null
 			{
 				//初始化字体模块
 				Dom.initTitleSize = parseInt( util.storageGetter('h4FontSize') );
 				Dom.initContentSize = parseInt( util.storageGetter('contentFontSize') );
-				Dom.initLineHeight = parseInt( util.storageGetter('lineHeight') );
-				Dom.h4.css('font-size', Dom.initTitleSize + 'px');
-				Dom.content.css('font-size', Dom.initContentSize + 'px');
-				Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
+				Dom.initLineHeight = parseInt( util.storageGetter('lineHeight') );	
+			}
+			Dom.h4.css('font-size', Dom.initTitleSize + 'px');
+			Dom.content.css('font-size', Dom.initContentSize + 'px');
+			Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
+			if( util.storageGetter( 'rootBg') )
+			{
 				//初始化背景模块
 				var getbg = util.storageGetter( 'rootBg');
 				var getcolor = util.storageGetter( 'contentColor' );
 				Dom.content.css('color',getcolor);
 				Dom.root.css('background-color',getbg);
 			}
+			// console.log(Dom.initTitleSize);
 		};
 
 	}
@@ -176,6 +186,7 @@
 		}
 		active( $('.bottom_btn li span'), 'bot_active' );
 		active( $('.top_nav .nav_title'), 'bot_active' );
+		active( $('.chapter_btn li'), 'page_active' );
 		active( $('.set_btn'), 'setbutton_active' );
 	}
 
@@ -286,7 +297,7 @@
 				$(this).removeClass('readtype_day');
 				$(this).html('夜间');
 				//在切换时需要重新设定背景和字色，如果用户有设置那么就取用设置值
-				if( util.storageGetter( 'rootBg') != 'undefined' ){
+				if( util.storageGetter( 'rootBg') ){
 					Dom.root.css('background-color',util.storageGetter( 'rootBg'));
 					Dom.content.css('color',util.storageGetter( 'contentColor'));
 				}else{
@@ -297,7 +308,7 @@
 				$(this).addClass('readtype_day');
 				$(this).html('昼间');
 				Dom.root.css('background-color','rgb(15, 20, 16)');
-				Dom.content.css('color','rgb(0, 0, 0)');
+				Dom.content.css('color','rgb(104, 101, 101)');
 			}	
 		});
 

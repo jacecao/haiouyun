@@ -61,6 +61,11 @@
 			border-right: 1px solid #858382;
 			color: #fff;
 		}
+		/* ***********************上下页激活 */
+		.chapter_btn li.page_active
+		{
+			color: #A86604;
+		}
 		.chapter_btn li:last-child
 		{
 			border-right: none;
