@@ -54,7 +54,7 @@
 			});
 		eventHandler();
 	}
-	function readerModel(){
+	function readerModel(){		
 		var chapter_ID;
 		var chapter_length;
 		var init = function( callback ){
@@ -86,22 +86,22 @@
 			},'json');
 		};
 		var prevChapter = function( callback ){
-			if( chapter_ID == 0 )
+			if( chapter_ID == 1 )
 			{
-				return false;
+				return true;
 			}
 			chapter_ID -= 1;
 			getChapterContent( chapter_ID , function(data){ callback(data); });
-			return true;
+			return false;
 		};
 		var nextChapter = function( callback ){
-			if( chapter_ID == chapter_length )
+			if( chapter_ID == 4 ) //测试也只有4页 正常应该是chapter_length
 			{
-				return false;
+				return true;
 			}
 			chapter_ID += 1;
 			getChapterContent( chapter_ID , function(data){ callback(data); });
-			return true;
+			return false;
 		};
 		return { 
 			init : init ,
@@ -123,7 +123,12 @@
 		}
 
 		return function( data ){
-			contentbox.html( parseChapterDta( data ) );	
+			contentbox.html( parseChapterDta( data ) );
+			// 锁定父体的高度
+			if( $('#root').offset().height < screen.availHeight)
+			{
+				$('#root').css('height',screen.availHeight +'px');
+			}
 			//获取阅读器设置样式信息 并更新DOM
 			Dom.h4 = $("#chapter_content h4");
 			Dom.lineHeight = $('#chapter_content p');
@@ -141,11 +146,6 @@
 				var getcolor = util.storageGetter( 'contentColor' );
 				Dom.content.css('color',getcolor);
 				Dom.root.css('background-color',getbg);
-			}
-			// 锁定父体的高度
-			if( $('#root').offset().height < screen.availHeight)
-			{
-				$('#root').css('height',screen.availHeight +'px');
 			}
 		};
 
@@ -308,15 +308,22 @@
 		});
 
 		// 上一章 下一章 交互设定
-		$('#prev_btn').click(function(){
-			dataModel.prevChapter(function(data){
+		var turnPage = function( callback , msg ){
+			var flag = callback(function(data){
 				readerUI(data);
 			});
+			if( flag ){
+				Dom.fontInfo.show().html(msg);
+				setTimeout(function(){
+					Dom.fontInfo.hide();
+				},1000);
+			}
+		};
+		$('#prev_btn').click(function(){
+			turnPage(dataModel.prevChapter , '爷！已经到头啦');
 		});
 		$('#next_btn').click(function(){
-			dataModel.nextChapter(function(data){
-				readerUI(data);
-			});
+			turnPage(dataModel.nextChapter , '爷！已经没有啦');
 		});
 
 	}
