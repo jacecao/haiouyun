@@ -43,35 +43,20 @@
 		initContentSize: 14,
 		initLineHeight: 24
 	};
+	var dataModel,readerUI;
 	function main(){
 		readerBaseFrame();
-		var dataModel = readerModel();
-		var reader = readerData( Dom.content );
+		dataModel = readerModel();
+		readerUI = readerData( Dom.content );
 		dataModel.init( function(data)
 			{ 
-				reader(data); 
+				readerUI(data); 
 			});
 		eventHandler();
 	}
 	function readerModel(){
-		//获取阅读器设置样式信息
-		if( util.storageGetter('h4FontSize') != 'undefined' )
-		{
-			//初始化字体模块
-			Dom.initTitleSize = parseInt( util.storageGetter('h4FontSize') );
-			Dom.initContentSize = parseInt( util.storageGetter('contentFontSize') );
-			Dom.initLineHeight = parseInt( util.storageGetter('lineHeight') );
-			Dom.h4.css('font-size', Dom.initTitleSize + 'px');
-			Dom.content.css('font-size', Dom.initContentSize + 'px');
-			Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
-			//初始化背景模块
-			var getbg = util.storageGetter( 'rootBg');
-			var getcolor = util.storageGetter( 'contentColor' );
-			Dom.content.css('color',getcolor);
-			Dom.root.css('background-color',getbg);
-		}
-		
 		var chapter_Id;
+		var chapter_length;
 		var init = function( callback ){
 			getChapterInfo( function(){
 				getChapterContent(chapter_Id,function( data ){
@@ -84,6 +69,7 @@
 			$.get('data/chapter.json',function( data ){
 				//获取章节信息后执行什么
 				chapter_Id = data.chapters[1].chapter_id;
+				chapter_length = data.chapters.length;
 				callback && callback();
 			},'json');
 		};
@@ -99,7 +85,29 @@
 				}
 			},'json');
 		};
-		return { init : init };	
+		var prevChapter = function( callback ){
+			if( chapter_id == 0 )
+			{
+				return false;
+			}
+			chapter_id -= 1;
+			getChapterContent( chapter_id , function(data){ callback(data); });
+			return true;
+		};
+		var nextChapter = function( callback ){
+			if( chapter_id == chapter_length )
+			{
+				return false;
+			}
+			chapter_id += 1;
+			getChapterContent( chapter_id , function(data){ callback(data); });
+			return true;
+		};
+		return { 
+			init : init ,
+			prevChapter : prevChapter ,
+			nextChapter : nextChapter 
+		};	
 	}
 
 	function readerData( contentbox ){
@@ -115,7 +123,25 @@
 		}
 
 		return function( data ){
-			contentbox.html( parseChapterDta( data ) );
+			contentbox.html( parseChapterDta( data ) );	
+			//获取阅读器设置样式信息 并更新DOM
+			Dom.h4 = $("#chapter_content h4");
+			Dom.lineHeight = $('#chapter_content p');
+			if( util.storageGetter('h4FontSize') != 'undefined' )
+			{
+				//初始化字体模块
+				Dom.initTitleSize = parseInt( util.storageGetter('h4FontSize') );
+				Dom.initContentSize = parseInt( util.storageGetter('contentFontSize') );
+				Dom.initLineHeight = parseInt( util.storageGetter('lineHeight') );
+				Dom.h4.css('font-size', Dom.initTitleSize + 'px');
+				Dom.content.css('font-size', Dom.initContentSize + 'px');
+				Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
+				//初始化背景模块
+				var getbg = util.storageGetter( 'rootBg');
+				var getcolor = util.storageGetter( 'contentColor' );
+				Dom.content.css('color',getcolor);
+				Dom.root.css('background-color',getbg);
+			}
 			// 锁定父体的高度
 			if( $('#root').offset().height < screen.availHeight)
 			{
@@ -280,6 +306,19 @@
 			Dom.topNav.hide();
 			Dom.botNav.hide();
 		});
+
+		// 上一章 下一章 交互设定
+		$('#prev_btn').click(function(){
+			dataModel.prevChapter(function(data){
+				readerUI(data);
+			});
+		});
+		$('#next_btn').click(function(){
+			dataModel.nextChapter(function(data){
+				readerUI(data);
+			});
+		});
+
 	}
 	main();
 })();

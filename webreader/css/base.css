@@ -42,7 +42,7 @@
 			line-height: 34px;
 			border-radius: 8px;
 			border: 1px solid #858382;
-			font-size: 14px;
+			font-size: 15px;
 			background-color: #000;
 			opacity: 0.9;
 		}
@@ -175,10 +175,11 @@
 		.info
 		{
 			display: none;
-			position: absolute;
-			top: -40px;
+			position: fixed;
+			bottom: 240px;
 			left: 50%;
-			width: 160px;
+			width: 200px;
+			margin-left: -100px;
 			height: 30px;
 			font-size: 14px;
 			letter-spacing: 3px;
