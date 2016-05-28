@@ -55,11 +55,11 @@
 		eventHandler();
 	}
 	function readerModel(){
-		var chapter_Id;
+		var chapter_ID;
 		var chapter_length;
 		var init = function( callback ){
 			getChapterInfo( function(){
-				getChapterContent(chapter_Id,function( data ){
+				getChapterContent(chapter_ID,function( data ){
 					callback( data );
 				});
 			} );
@@ -68,7 +68,7 @@
 		var getChapterInfo = function( callback ){
 			$.get('data/chapter.json',function( data ){
 				//获取章节信息后执行什么
-				chapter_Id = data.chapters[1].chapter_id;
+				chapter_ID = data.chapters[1].chapter_id;
 				chapter_length = data.chapters.length;
 				callback && callback();
 			},'json');
@@ -86,21 +86,21 @@
 			},'json');
 		};
 		var prevChapter = function( callback ){
-			if( chapter_id == 0 )
+			if( chapter_ID == 0 )
 			{
 				return false;
 			}
-			chapter_id -= 1;
-			getChapterContent( chapter_id , function(data){ callback(data); });
+			chapter_ID -= 1;
+			getChapterContent( chapter_ID , function(data){ callback(data); });
 			return true;
 		};
 		var nextChapter = function( callback ){
-			if( chapter_id == chapter_length )
+			if( chapter_ID == chapter_length )
 			{
 				return false;
 			}
-			chapter_id += 1;
-			getChapterContent( chapter_id , function(data){ callback(data); });
+			chapter_ID += 1;
+			getChapterContent( chapter_ID , function(data){ callback(data); });
 			return true;
 		};
 		return { 
