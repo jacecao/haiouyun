@@ -138,7 +138,7 @@
 			Dom.h4 = $("#chapter_content h4");
 			Dom.lineHeight = $('#chapter_content p');
 			// console.log(util.storageGetter('h4FontSize'));
-			if( util.storageGetter('h4FontSize') || util.storageGetter('h4FontSize') == NaN ) //注意这里即使没有设定 h4FontSize 那么返回的不是undefined而是null
+			if( util.storageGetter('h4FontSize') || util.storageGetter('h4FontSize') != NaN ) //注意这里即使没有设定 h4FontSize 那么返回的不是undefined而是null
 			{
 				//初始化字体模块
 				Dom.initTitleSize = parseInt( util.storageGetter('h4FontSize') );
