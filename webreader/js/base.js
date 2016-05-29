@@ -148,6 +148,7 @@
 			Dom.h4.css('font-size', Dom.initTitleSize + 'px');
 			Dom.content.css('font-size', Dom.initContentSize + 'px');
 			Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
+			alert(Dom.initTitleSize+'..'+Dom.initContentSize+'...'+22);
 			if( util.storageGetter( 'rootBg') )
 			{
 				//初始化背景模块
@@ -157,7 +158,6 @@
 				Dom.root.css('background-color',getbg);
 			}
 			// console.log(Dom.initTitleSize);
-			alert(Dom.initTitleSize+'..'+Dom.initContentSize+'...'+Dom.initLineHeight);
 		};
 
 	}
