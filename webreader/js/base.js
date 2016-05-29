@@ -138,8 +138,8 @@
 			Dom.h4 = $("#chapter_content h4");
 			Dom.lineHeight = $('#chapter_content p');
 			// console.log(util.storageGetter('h4FontSize'));
-			alert( util.storageGetter('h4FontSize') +'.,'+Dom.initTitleSize+'..'+Dom.initContentSize+'...'+23);
-			alert( typeof util.storageGetter('h4FontSize') + 23);
+			alert( util.storageGetter('h4FontSize') +'.,'+Dom.initTitleSize+'..'+Dom.initContentSize+'...'+24);
+			alert( typeof util.storageGetter('h4FontSize') + 24);
 			if( util.storageGetter('h4FontSize') && util.storageGetter('h4FontSize') != 'NaN' ) //注意这里即使没有设定 h4FontSize 那么返回的不是undefined而是null
 			{
 				//初始化字体模块
@@ -150,7 +150,7 @@
 			Dom.h4.css('font-size', Dom.initTitleSize + 'px');
 			Dom.content.css('font-size', Dom.initContentSize + 'px');
 			Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
-			alert(Dom.initTitleSize+'..'+Dom.initContentSize+'...'+22);
+			alert(Dom.initTitleSize+'..'+Dom.initContentSize+'...'+24);
 			if( util.storageGetter( 'rootBg') )
 			{
 				//初始化背景模块
