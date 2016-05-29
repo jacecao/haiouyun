@@ -140,7 +140,7 @@
 			// console.log(util.storageGetter('h4FontSize'));
 			alert( util.storageGetter('h4FontSize') +'.,'+Dom.initTitleSize+'..'+Dom.initContentSize+'...'+23);
 			alert( typeof util.storageGetter('h4FontSize') + 23);
-			if( util.storageGetter('h4FontSize') && util.storageGetter('h4FontSize') != NaN ) //注意这里即使没有设定 h4FontSize 那么返回的不是undefined而是null
+			if( util.storageGetter('h4FontSize') && util.storageGetter('h4FontSize') != 'NaN' ) //注意这里即使没有设定 h4FontSize 那么返回的不是undefined而是null
 			{
 				//初始化字体模块
 				Dom.initTitleSize = parseInt( util.storageGetter('h4FontSize') );
