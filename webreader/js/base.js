@@ -145,7 +145,6 @@
 				Dom.initContentSize = parseInt( util.storageGetter('contentFontSize') );
 				Dom.initLineHeight = parseInt( util.storageGetter('lineHeight') );	
 			}
-			alert(Dom.initTitleSize);
 			Dom.h4.css('font-size', Dom.initTitleSize + 'px');
 			Dom.content.css('font-size', Dom.initContentSize + 'px');
 			Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
@@ -158,6 +157,7 @@
 				Dom.root.css('background-color',getbg);
 			}
 			// console.log(Dom.initTitleSize);
+			alert(Dom.initContentSize+'..'+Dom.initLineHeight+'...'+Dom.initLineHeight);
 		};
 
 	}
