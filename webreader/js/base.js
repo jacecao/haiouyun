@@ -137,7 +137,6 @@
 			//获取阅读器设置样式信息 并更新DOM
 			Dom.h4 = $("#chapter_content h4");
 			Dom.lineHeight = $('#chapter_content p');
-			alert(Dom.initTitleSize);
 			// console.log(util.storageGetter('h4FontSize'));
 			if( util.storageGetter('h4FontSize') || util.storageGetter('h4FontSize') == NaN ) //注意这里即使没有设定 h4FontSize 那么返回的不是undefined而是null
 			{
@@ -146,7 +145,7 @@
 				Dom.initContentSize = parseInt( util.storageGetter('contentFontSize') );
 				Dom.initLineHeight = parseInt( util.storageGetter('lineHeight') );	
 			}
-			// alert(Dom.initTitleSize);
+			alert(Dom.initTitleSize);
 			Dom.h4.css('font-size', Dom.initTitleSize + 'px');
 			Dom.content.css('font-size', Dom.initContentSize + 'px');
 			Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
