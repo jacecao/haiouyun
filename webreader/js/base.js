@@ -157,7 +157,7 @@
 				Dom.root.css('background-color',getbg);
 			}
 			// console.log(Dom.initTitleSize);
-			alert(Dom.initContentSize+'..'+Dom.initLineHeight+'...'+Dom.initLineHeight);
+			alert(Dom.initTitleSize+'..'+Dom.initContentSize+'...'+Dom.initLineHeight);
 		};
 
 	}
