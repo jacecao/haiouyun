@@ -137,10 +137,8 @@
 			//获取阅读器设置样式信息 并更新DOM
 			Dom.h4 = $("#chapter_content h4");
 			Dom.lineHeight = $('#chapter_content p');
-			// console.log(util.storageGetter('h4FontSize'));
-			alert( util.storageGetter('h4FontSize') +'.,'+Dom.initTitleSize+'..'+Dom.initContentSize+'...'+24);
-			alert( typeof util.storageGetter('h4FontSize') + 24);
-			if( util.storageGetter('h4FontSize') && util.storageGetter('h4FontSize') != 'NaN' ) //注意这里即使没有设定 h4FontSize 那么返回的不是undefined而是null
+			if( util.storageGetter('h4FontSize') && util.storageGetter('h4FontSize') != 'NaN' ) 
+			//注意这里即使没有设定 h4FontSize 那么返回的不是undefined而是null
 			{
 				//初始化字体模块
 				Dom.initTitleSize = parseInt( util.storageGetter('h4FontSize') );
@@ -150,7 +148,6 @@
 			Dom.h4.css('font-size', Dom.initTitleSize + 'px');
 			Dom.content.css('font-size', Dom.initContentSize + 'px');
 			Dom.lineHeight.css('line-height', Dom.initLineHeight + 'px');
-			alert(Dom.initTitleSize+'..'+Dom.initContentSize+'...'+24);
 			if( util.storageGetter( 'rootBg') )
 			{
 				//初始化背景模块
@@ -159,7 +156,6 @@
 				Dom.content.css('color',getcolor);
 				Dom.root.css('background-color',getbg);
 			}
-			// console.log(Dom.initTitleSize);
 		};
 
 	}
@@ -300,7 +296,7 @@
 				$(this).removeClass('readtype_day');
 				$(this).html('夜间');
 				//在切换时需要重新设定背景和字色，如果用户有设置那么就取用设置值
-				if( util.storageGetter( 'rootBg') ){
+				if( util.storageGetter( 'rootBg') && util.storageGetter( 'rootBg') != 'NaN' ){
 					Dom.root.css('background-color',util.storageGetter( 'rootBg'));
 					Dom.content.css('color',util.storageGetter( 'contentColor'));
 				}else{
