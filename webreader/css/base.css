@@ -244,20 +244,20 @@
 			box-shadow:0 0 2px 2px #317EF3;
 		}
 
-
-		/* ****************************** 交互按钮 */
-		.mid_action
+/* ****************************** 交互按钮 */
+		.mid_action,#chapterTitleshow
 		{
 			position: fixed;
 			width: 100%;
 			max-width: 800px;
-			height: 100px;
 			top: 50%;
+		}
+		.mid_action
+		{
+			height: 100px;
 			margin-top: -50px;
 		}
-
-
-			/* chapter show */
+		/* chapter show */
 		#chapterTitleshow
 		{
 			display: none;
@@ -296,5 +296,4 @@
 		{
 			background-color: #A86604;
 		}
-
 		
