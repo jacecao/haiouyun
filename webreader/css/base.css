@@ -255,3 +255,46 @@
 			top: 50%;
 			margin-top: -50px;
 		}
+
+
+			/* chapter show */
+		#chapterTitleshow
+		{
+			display: none;
+		}
+		#chapterTitleshow ul
+		{
+			width: 70%;
+			max-height: 400px;
+			background-color: #000;
+			padding: 10px;
+			transform: translateY(-50%);
+			overflow: scroll;
+			margin: 0 auto;
+			text-align: center;
+			border-radius: 10px;
+		}
+		#chapterTitleshow li
+		{
+			height: 30px;
+			font-size: 20px;
+			padding: 5px;
+			line-height: 30px;
+			text-align: left;
+			text-indent: 1em;
+			overflow: hidden;
+		}
+		#chapterTitleshow li a
+		{
+			width: 100%;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			color: #959292;
+		}
+		#chapterTitleshow li.bot_active
+		{
+			background-color: #A86604;
+		}
+
+		

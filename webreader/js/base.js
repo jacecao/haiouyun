@@ -28,7 +28,6 @@
 			getJSONP : getJSONP
 		};
 	})();
-
 	var Dom = {
 		win : $(window),
 		doc : $(document),
@@ -44,12 +43,13 @@
 		initContentSize: 14,
 		initLineHeight: 24
 	};
-	
+
 	var dataModel,readerUI;
 
 	function main(){
 		readerBaseFrame();
 		dataModel = readerModel();
+		dataModel.getChapterTitle();
 		readerUI = readerData( Dom.content );
 		dataModel.init( function(data)
 			{ 
@@ -61,6 +61,7 @@
 	function readerModel(){		
 		var chapter_ID;
 		var chapter_length;
+		var chapterHTML;
 		var init = function( callback ){
 			getChapterInfo( function(){
 				getChapterContent(chapter_ID,function( data ){
@@ -84,7 +85,7 @@
 			
 			if( util.storageGetter('chapter_ID') && util.storageGetter('chapter_ID') != 'NaN' )
 			{
-				chapterId = util.storageGetter('chapter_ID');
+				chapterId = parseInt( util.storageGetter('chapter_ID'),10);
 			}
 
 			$.get('data/data'+chapterId+'.json',function( data ){
@@ -118,10 +119,21 @@
 			util.storageSetter('chapter_ID',chapter_ID);
 			return false;
 		};
+		var getChapterTitle = function(){
+			chapterHTML = '';
+			$.get('data/chapter.json',function( data ){
+				chapters = data.chapters;
+				chapters.forEach(function(item){
+					chapterHTML+=('<li><a href="#">'+item.title+'</a></li>');
+				});
+				$('#chapterTitleshow').html('<ul>'+chapterHTML+'</ul>');
+			},'json');
+		};
 		return { 
 			init : init ,
 			prevChapter : prevChapter ,
-			nextChapter : nextChapter 
+			nextChapter : nextChapter ,
+			getChapterTitle : getChapterTitle
 		};	
 	}
 
@@ -148,8 +160,8 @@
 			//获取阅读器设置样式信息 并更新DOM
 			Dom.h4 = $("#chapter_content h4");
 			Dom.lineHeight = $('#chapter_content p');
-			if( util.storageGetter('h4FontSize') && util.storageGetter('h4FontSize') != 'NaN' ) 
-			//注意这里即使没有设定 h4FontSize 那么返回的不是undefined而是null
+			// console.log(util.storageGetter('h4FontSize'));
+			if( util.storageGetter('h4FontSize') &&  util.storageGetter('h4FontSize') != 'NaN' ) //注意这里即使没有设定 h4FontSize 那么返回的不是undefined而是null
 			{
 				//初始化字体模块
 				Dom.initTitleSize = parseInt( util.storageGetter('h4FontSize') );
@@ -167,6 +179,7 @@
 				Dom.content.css('color',getcolor);
 				Dom.root.css('background-color',getbg);
 			}
+			// console.log(Dom.initTitleSize);
 		};
 
 	}
@@ -198,6 +211,7 @@
 		active( $('.top_nav .nav_title'), 'bot_active' );
 		active( $('.chapter_btn li'), 'page_active' );
 		active( $('.set_btn'), 'setbutton_active' );
+		active($('#chapterTitleshow li'), 'bot_active' );
 	}
 
 	function eventHandler(){	
@@ -215,9 +229,17 @@
 		// titleshow **********************
 		$(".titleshow").click(function(){
 			readerBaseFrame();
+			//显示所有章节	
+			if( $('#chapterTitleshow').css('display') === "none" )
+			{
+				$('#chapterTitleshow').show();
+			}else{
+				$('#chapterTitleshow').hide();
+			}
 		});
 		//font_set************************
 		$('.bottom_btn .fontset').click(function(){
+			$('#chapterTitleshow').hide();
 			if(Dom.setNav.css('display') == 'none')
 			{
 				$(this).addClass('fontset_active');
@@ -302,12 +324,13 @@
 			});
 		//readtype_set************************
 		$('.bottom_btn .readtype').click(function(){
+			$('#chapterTitleshow').hide();
 			readerBaseFrame();
 			if( $(this).hasClass('readtype_day') ){
 				$(this).removeClass('readtype_day');
 				$(this).html('夜间');
 				//在切换时需要重新设定背景和字色，如果用户有设置那么就取用设置值
-				if( util.storageGetter( 'rootBg') && util.storageGetter( 'rootBg') != 'NaN' ){
+				if( util.storageGetter( 'rootBg') ){
 					Dom.root.css('background-color',util.storageGetter( 'rootBg'));
 					Dom.content.css('color',util.storageGetter( 'contentColor'));
 				}else{
@@ -346,6 +369,8 @@
 		$('#next_btn').click(function(){
 			turnPage(dataModel.nextChapter , '爷！已经没有啦');
 		});
+
+
 
 	}
 	main();
