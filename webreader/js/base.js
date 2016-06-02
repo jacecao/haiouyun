@@ -72,12 +72,21 @@
 		var getChapterInfo = function( callback ){
 			$.get('data/chapter.json',function( data ){
 				//获取章节信息后执行什么
+				//这里有个误区需要注意这里的chapter_ID,是章节ID
+				//而getchapterContent（）中的chapterId，其实是获得章节中的不同小节
+				//由于这里模仿数据传递，所以参数所代表的意义不够准确，容易被误导
 				chapter_ID = data.chapters[1].chapter_id;
 				chapter_length = data.chapters.length;
 				callback && callback();
 			},'json');
 		};
 		var getChapterContent = function( chapterId , callback ){
+			
+			if( util.storageGetter('chapter_ID') && util.storageGetter('chapter_ID') != 'NaN' )
+			{
+				chapterId = util.storageGetter('chapter_ID');
+			}
+
 			$.get('data/data'+chapterId+'.json',function( data ){
 				if( data.result == 0 )
 				{
@@ -96,6 +105,7 @@
 			}
 			chapter_ID -= 1;
 			getChapterContent( chapter_ID , function(data){ callback(data); });
+			util.storageSetter('chapter_ID',chapter_ID);
 			return false;
 		};
 		var nextChapter = function( callback ){
@@ -105,6 +115,7 @@
 			}
 			chapter_ID += 1;
 			getChapterContent( chapter_ID , function(data){ callback(data); });
+			util.storageSetter('chapter_ID',chapter_ID);
 			return false;
 		};
 		return { 
