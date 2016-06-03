@@ -212,6 +212,13 @@
 		active( $('.chapter_btn li'), 'page_active' );
 		active( $('.set_btn'), 'setbutton_active' );
 		active($('#chapterTitleshow li'), 'bot_active' );
+		//点击每个小节后隐藏小节显示
+		$('#chapterTitleshow li').click(
+			function(){
+				setTimeout(function(){
+					$('#chapterTitleshow').hide();
+				},800);
+			});
 	}
 
 	function eventHandler(){	
