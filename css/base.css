@@ -1,0 +1,156 @@
+
+/******************** 全局部分 *************************/
+body,html,ul
+{
+	padding: 0;
+	margin: 0;
+}
+a{ text-decoration:none; color:#000;}
+ul{ list-style: none;}
+body
+{
+	font-family: -apple-system-font,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+	font-size: 16px;
+	background: #f1f1f1;
+}
+
+@media screen and (min-width: 501px)
+{
+	body
+	{
+		min-width: 800px;
+	}
+	.auto-width
+	{
+		width: 800px;
+		margin: 0 auto;
+	}
+	.header-logo
+	{
+		display: block;
+		height: 124px;
+		text-align: center;
+		margin: 50px auto 0 auto;
+	}
+	.header-nav
+	{
+		width: 47%;
+		min-width: 400px ;
+		height: 40px;
+		margin: 10px auto 0 auto;
+	}
+	.header-nav li
+	{
+		display: inline-block;
+		font-size: 1.2em;
+		height: 30px;
+		line-height: 30px;
+		padding: 5px;
+	}
+	.header-nav li::after
+	{
+		content:'|';
+	}
+	.header-nav li:last-child::after
+	{
+		content:'';
+	}
+
+	.content img
+	{
+		max-width: 800px;
+	}
+
+	.footer
+	{
+		height: 240px;
+	}
+
+}
+
+@media screen and (max-width: 500px)
+{
+	body
+	{
+		min-width: 380px;
+	}
+	.auto-width
+	{
+		width: 380px;
+		margin: 0 auto;
+	}
+	.header-logo
+	{
+		display: block;
+		text-align: center;
+		margin: 30px auto 0 auto;
+	}
+	.header-nav
+	{
+		width: 80%;
+		margin: 10px auto;
+	}
+	.header-nav li
+	{
+		display: block;
+		font-size: 1em;
+		height: 20px;
+		line-height: 20px;
+		padding: 5px;
+	}
+	.content img
+	{
+		width: 100%;
+	}
+}
+
+
+/******************** 全局类 *****************/
+.border
+{
+	height: 4px;
+	width: 100%;
+	background: #0e0e0e;
+}
+
+/*********** header **************/
+.header
+{
+	position: relative;
+	height: 218px;
+	text-align: center;
+	background: url(../img/header_bg.png) no-repeat bottom center;
+}
+.header-logo img
+{
+	width: 41%;
+	max-width: 335px;
+	min-width: 200px;
+}
+.header-border
+{
+	margin-top: -12px;
+}
+
+
+/******************** content *****************/
+.content
+{
+	text-align: center;
+	margin: 10px auto;
+
+}
+
+/* ***************** footer ***************/
+
+.footer
+{
+	
+}
+.footer-content
+{
+	max-width: 800px;
+	height: 240px;
+	margin: 0 auto;
+	background: #cdcdcd;
+}
