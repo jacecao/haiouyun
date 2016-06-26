@@ -72,18 +72,18 @@ body
 {
 	body
 	{
-		min-width: 320px;
+		min-width: 300px;
 	}
 	.auto-width
 	{
-		min-width: 320px;
+		min-width: 300px;
 		margin: 0 auto;
 	}
 	.header-logo
 	{
 		display: block;
 		text-align: center;
-		margin: 30px auto 0 auto;
+		margin: 20px auto 0 auto;
 	}
 	.header-nav
 	{
@@ -109,7 +109,7 @@ body
 .header
 {
 	position: relative;
-	height: 218px;
+	height: 220px;
 	text-align: center;
 	background: url(../img/header_bg.png) no-repeat bottom center;
 }
@@ -119,7 +119,10 @@ body
 	max-width: 335px;
 	min-width: 200px;
 }
-
+.header-nav li
+{
+	text-align: center;
+}
 
 /******************** content *****************/
 .content
