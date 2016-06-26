@@ -105,14 +105,6 @@ body
 }
 
 
-/******************** 全局类 *****************/
-.border
-{
-	height: 4px;
-	width: 100%;
-	background: #0e0e0e;
-}
-
 /*********** header **************/
 .header
 {
@@ -126,10 +118,6 @@ body
 	width: 41%;
 	max-width: 335px;
 	min-width: 200px;
-}
-.header-border
-{
-	margin-top: -12px;
 }
 
 
