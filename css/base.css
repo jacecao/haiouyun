@@ -145,6 +145,12 @@ body
 		line-height: 20px;
 		padding: 5px;
 	}
+	.header-nav li a
+	{
+		width: 100px;
+		margin: 0 auto;
+		border: 1px solid #448597;
+	}
 	.content img
 	{
 		width: 100%;
