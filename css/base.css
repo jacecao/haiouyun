@@ -25,20 +25,31 @@ body
 		width: 800px;
 		margin: 0 auto;
 	}
+	.header
+	{
+		height: 230px;
+	}
 	.header-logo
 	{
 		display: block;
 		height: 124px;
 		text-align: center;
-		margin: 50px auto 0 auto;
+		margin: 20px auto auto 0;
 	}
+
 	.header-nav
 	{
-		width: 328px;
-		/* min-width: 400px ; */
+		width: 246px;
 		height: 40px;
 		text-align: center;
-		margin: 10px auto 0 auto;
+		margin: 32px auto;
+		transform: translateY(-10px);
+		animation: navw 2s;
+	}
+	@keyframes navw
+	{
+		from { transform: translateY(40px);}
+		to { transform: translateY(-10px);}
 	}
 	.header-nav li
 	{
@@ -103,14 +114,9 @@ body
 		content:'';
 	} 取消掉导航条右侧竖线 */
 
-	.content img
+	.content-box
 	{
-		max-width: 800px;
-	}
-
-	.footer
-	{
-		height: 240px;
+		max-width: 90%;
 	}
 
 }
@@ -126,51 +132,56 @@ body
 		min-width: 300px;
 		margin: 0 auto;
 	}
+	.header
+	{
+		height: 150px;
+	}
 	.header-logo
 	{
 		display: block;
 		text-align: center;
 		margin: 20px auto 0 auto;
 	}
+	.header-logo img
+	{
+		width: 100%;
+	}
 	.header-nav
 	{
-		width: 80%;
-		margin: 10px auto;
+		position: absolute;
+		width: 240px;
+		background: #1E9FC4;
+		border-radius: 5px ;
+		display: none;
 	}
 	.header-nav li
 	{
 		display: block;
-		font-size: 1em;
-		height: 20px;
-		line-height: 20px;
+		font-size: 1.2em;
+		height: 30px;
+		line-height: 30px;
 		padding: 5px;
 	}
 	.header-nav li a
 	{
-		width: 100px;
+		width: 240px;
 		margin: 0 auto;
-		border: 1px solid #448597;
-	}
-	.content img
-	{
-		width: 100%;
 	}
 }
-
 
 /*********** header **************/
+
 .header
 {
-	position: relative;
-	height: 220px;
 	text-align: center;
-	background: url(../img/header_bg.png) no-repeat bottom center;
+	overflow: hidden;
 }
+
 .header-logo img
 {
-	width: 41%;
 	max-width: 335px;
 	min-width: 200px;
+	border-bottom: 1px solid #000;
 }
 .header-nav li
 {
@@ -179,7 +190,7 @@ body
 .header-nav li a
 {
 	display: block;
-	color: #067594;
+	color: #777575;
 	text-align: center;
 	transition: all 1s;
 	-o-transition: all 1s;
@@ -188,7 +199,7 @@ body
 	-webkit-transition: all 1s;
 
 }
-.header-nav li a:hover
+.header-nav li a:hover,.active
 {
 	color: #0CD8F1;
 	background-image: gradient(linear, 0 0, 0 bottom, from(rgba(29, 152, 187, 1)), to(rgba(23, 239, 213, 1)));
@@ -219,7 +230,25 @@ body
 .footer-content
 {
 	max-width: 800px;
-	height: 240px;
+	padding: 10px;
 	margin: 0 auto;
-	background: #cdcdcd;
+	/* background: #cdcdcd; */
+}
+.footer-content p
+{
+	margin: 0;
+	padding: 0;
+	text-indent: 1.6em;
+	text-align: center;
+	letter-spacing: 2px;
+	font-size: 0.8em;
+	color: #777575;
+}
+.footer-content p.footer_pic
+{
+	margin: 10px auto;
+}
+.footer-content p a
+{
+	color: #262626;
 }
