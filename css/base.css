@@ -5,7 +5,7 @@ body,html,ul
 	padding: 0;
 	margin: 0;
 }
-a{ text-decoration:none; color:#000;}
+a{ text-decoration:none;}
 ul{ list-style: none;}
 body
 {
@@ -34,27 +34,74 @@ body
 	}
 	.header-nav
 	{
-		width: 47%;
-		min-width: 400px ;
+		width: 328px;
+		/* min-width: 400px ; */
 		height: 40px;
+		text-align: center;
 		margin: 10px auto 0 auto;
 	}
 	.header-nav li
 	{
-		display: inline-block;
+		float: left;
 		font-size: 1.2em;
 		height: 30px;
 		line-height: 30px;
-		padding: 5px;
+		padding: 5px 10px 5px 10px;
+		margin: 0;
+		
 	}
-	.header-nav li::after
+	.nav-index
+	{
+		width: 51px;
+	}
+	.nav-blog
+	{
+		width: 62px;
+	}
+	.nav-project
+	{
+		width: 88px;
+	}
+	.nav-hiou
+	{
+		width: 47px;
+	}
+	.header-nav li a .hover-line
+	{
+		display: block;
+		width:0;
+		border-bottom: 1px solid #067594;
+		transform: translateX(50%);
+		-o-transform: translateX(50%);
+		-moz-transform: translateX(50%);
+		-ms-transform: translateX(50%);
+		-webkit-transform: translateX(50%);
+		transition: all 1s;
+		-o-transition: all 1s;
+		-ms-transition: all 1s;
+		-moz-transition: all 1s;
+		-webkit-transition: all 1s;
+	}
+	.header-nav li:hover .hover-line
+	{
+		width:inherit;
+		transform: translateX(0);
+		-o-transform: translateX(0);
+		-moz-transform: translateX(0);
+		-ms-transform: translateX(0);
+		-webkit-transform: translateX(0);
+	}
+/* 	.header-nav li::after
 	{
 		content:'|';
-	}
-	.header-nav li:last-child::after
+		margin-left:10px;
+		display: inline-block;
+		color: #067594;
+	} */
+/* 	.header-nav li:last-child::after
 	{
 		content:'';
-	}
+	} 取消掉导航条右侧竖线 */
 
 	.content img
 	{
@@ -123,13 +170,38 @@ body
 {
 	text-align: center;
 }
+.header-nav li a
+{
+	display: block;
+	color: #067594;
+	text-align: center;
+	transition: all 1s;
+	-o-transition: all 1s;
+	-ms-transition: all 1s;
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;
 
+}
+.header-nav li a:hover
+{
+	color: #0CD8F1;
+	background-image: gradient(linear, 0 0, 0 bottom, from(rgba(29, 152, 187, 1)), to(rgba(23, 239, 213, 1)));
+	background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(29, 152, 187, 1)), to(rgba(23, 239, 213, 1)));
+	background-image: -o-gradient(linear, 0 0, 0 bottom, from(rgba(29, 152, 187, 1)), to(rgba(23, 239, 213, 1)));
+	background-image: -moz-gradient(linear, 0 0, 0 bottom, from(rgba(29, 152, 187, 1)), to(rgba(23, 239, 213, 1)));
+	background-image: -ms-gradient(linear, 0 0, 0 bottom, from(rgba(29, 152, 187, 1)), to(rgba(23, 239, 213, 1)));
+	background-clip: text;
+	-webkit-background-clip: text;
+	-o-background-clip: text;
+	-moz-background-clip: text;
+	-ms-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
 /******************** content *****************/
 .content
 {
 	text-align: center;
 	margin: 10px auto;
-
 }
 
 /* ***************** footer ***************/
