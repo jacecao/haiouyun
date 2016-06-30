@@ -1,6 +1,6 @@
 body
 {
-	background:url("../img/img/body_bg.jpg") no-repeat fixed;
+	background:url("../img/body_bg.jpg") no-repeat fixed;
 	/* 当background-attachment设置为scroll时background-size设置为cover不能解析 */
 	background-size: cover;	
 	width: 100%;
@@ -51,7 +51,7 @@ body
 }
 #header .header_img
 {
-	background: url("../img/img/wrap_bg.jpg") center;
+	background: url("../img/wrap_bg.jpg") center;
 	height: 250px;
 }
 #header .header_imgshow
@@ -83,27 +83,27 @@ body
 }
 #header .imgs1
 {
-	background:url("../img/img/banner_00.jpg") center; 
+	background:url("../img/banner_00.jpg") center; 
 }
 #header .imgs2
 {
-	background:url("../img/img/banner_01.jpg") center; 
+	background:url("../img/banner_01.jpg") center; 
 }
 #header .imgs3
 {
-	background:url("../img/img/banner_02.jpg") center; 
+	background:url("../img/banner_02.jpg") center; 
 }
 #header .imgs4
 {
-	background:url("../img/img/banner_03.jpg") center; 
+	background:url("../img/banner_03.jpg") center; 
 }
 #header .imgs5
 {
-	background:url("../img/img/banner_04.jpg") center; 
+	background:url("../img/banner_04.jpg") center; 
 }
 #header .imgs6
 {
-	background:url("../img/img/banner_05.jpg") center; 
+	background:url("../img/banner_05.jpg") center; 
 }
 
 #header .foot
@@ -129,27 +129,27 @@ body
 }
 #header .foot_run .s_img1 .img
 {
-	background: url("../img/img/sbanner_00.png") right center ;
+	background: url("../img/sbanner_00.png") right center ;
 }
 #header .foot_run .s_img2 .img
 {
-	background: url("../img/img/sbanner_01.png") right center ;
+	background: url("../img/sbanner_01.png") right center ;
 }
 #header .foot_run .s_img3 .img
 {
-	background: url("../img/img/sbanner_02.png") right center ;
+	background: url("../img/sbanner_02.png") right center ;
 }
 #header .foot_run .s_img4 .img
 {
-	background: url("../img/img/sbanner_03.png") right center ;
+	background: url("../img/sbanner_03.png") right center ;
 }
 #header .foot_run .s_img5 .img
 {
-	background: url("../img/img/sbanner_04.png") right center ;
+	background: url("../img/sbanner_04.png") right center ;
 }
 #header .foot_run .s_img6 .img
 {
-	background: url("../img/img/sbanner_05.png") right center ;
+	background: url("../img/sbanner_05.png") right center ;
 }
 #header .foot_run .bar
 {
