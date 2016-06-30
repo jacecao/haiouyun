@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><!-- 防止数据库不能识别中文编码 -->
+	<title>邀旅行</title>
+	<link rel="icon" href="images/logo.jpg" type="image/gif"/>
+	<script src="js/tool.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/base.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/base_drag.js" type="text/javascript" charset="UTF-8"></script>
+	<link rel="stylesheet" href="css/base.css" />
+	<link rel="stylesheet" href="css/blog.css" />
+
+</head>
+<body>
+	
+	<!-- 很奇怪的是把这个模块放在最后会出现布局问题  原因是绝对定位的问题 -->
+	<section><!--弹出窗口 -->
+		<div id="local_screen"></div><!-- 遮罩 -->
+		<div id="loading" class="shadow"><!-- 显示数据提交或加载状态开始 -->
+			<div class="loading">
+		        <span></span>
+		        <span></span>
+		        <span></span>
+		        <span></span>
+		        <span></span>
+			</div>
+			<span class="load_info">数据正在提交</span>
+		</div>
+		<div id="load_success" class="shadow">
+			<img src="images/logo.png" alt="加载成功">
+			<span class="load_info"></span>
+		</div><!-- 显示数据提交或加载状态结束 -->
+		<form action="" id="write_blog"><!-- 发文开始 -->
+			<h2 id="blog_h2" class="blog_h2">真正的你就在这字里行间
+				<img class="rotate blog_closed" src="images/closed_btn.png" />
+			</h2>
+			<dl>
+				<dd>主&nbsp; 题：<input type="text" name="blog_title" class="title"></dd>
+				<dd><span>主&nbsp; 体：</span><textarea name="blog_content" id="blog_content"></textarea></dd>
+			</dl>
+			<input class="blog_sub input_bar" type="button" value="发文" disabled="true">
+		</form><!-- 发文结束 -->
+		<div id="show_skin"><!-- 换肤开始 -->
+			<h2 class="show_skin_h2">皮肤预览 <span>默 认</span>
+				<img class="rotate show_skin_closed" src="images/closed_btn.png" />
+			</h2>
+			<div class="skin_box">
+				<div class="skin_img">
+					<!-- <img class="show_skin_img" src="images/skin/skin_small_1.jpg" alt=" "> -->
+					<!-- <img class="show_skin_img" src="images/skin/skin_small_2.jpg" alt=" "> -->
+					<!-- <img class="show_skin_img" src="images/skin/skin_small_3.jpg" alt=" "> -->
+				</div>
+				<span>皮肤名</span>
+			</div>
+			<strong class="sl">&lt;</strong>
+			<strong class="sr">&gt;</strong>
+			<div class="show_left show_bar"></div>
+			<div class="show_right show_bar"></div>
+			<div class="loading show_loading">
+		        <span></span>
+		        <span></span>
+		        <span></span>
+		        <span></span>
+		        <span></span>
+			</div>
+		</div><!-- 换肤结束 -->	
+		<!-- 登录表单开始 -->
+		<form action="" id="login"><!-- 登陆表单开始 -->
+			<h2 id="login_h2" class="login_h2">登&nbsp;&nbsp;录
+				<img class="rotate login_closed" src="images/closed_btn.png" />
+			</h2>
+			<div class="login_info"></div>
+			<p><label for="uesr">账 号：</label><input id="user" name="login_user" type="text" placeholder="电子邮件\电话号码"></p>
+			<p><label for="pass">密 码：</label><input id="pass"  name="login_pass" type="password"></p>
+			<input class="login_sub input_bar" type="button" value="登录">
+			<input class="login_reg input_bar mouse" type="button" value="注册">
+		</form><!-- 登陆表单结束 -->
+		<!-- 注册表单开始 -->
+		<form action="" id="reg"><!-- 注册表单开始 -->
+			<h2 id="reg_h2" class="reg_h2">账 号 注 册
+				<img class="rotate reg_closed" src="images/closed_btn.png" />
+			</h2>
+			<p>
+				<label for="reg_uesr">账&nbsp; &nbsp; &nbsp; &nbsp;号：</label><input id="reg_user"  name="reg_user" type="text" placeholder="输入账号">
+				<span class="info info_user">请输入用户名，2-10位，不得包括除‘_‘的其他字符</span>
+				<span class="info error_user">用户名不合法！</span>
+				<span class="info right_user">用户名可用！</span>
+				<span class="info check_user load_info">正在检测用户名</span>
+			</p>
+			<p>
+				<label for="reg_pass">密&nbsp; &nbsp; &nbsp; &nbsp;码：</label><input id="reg_pass"  name="reg_pass" type="password">
+				<span class="info info_pass">
+					<span>安全级别：<strong class="s s1">■</strong><strong class="s s2">■</strong><strong class="s s3">■</strong><strong class="s4"></strong></span>
+					<span><strong class="tip tip1"></strong>6 - 20个字符</span>
+					<span><strong class="tip tip2"></strong>仅许大小写字母-数字-非空字符</span>
+					<span><strong class="tip tip3"></strong>大小写字母-数字-非空符2种以上</span>
+				</span>
+				<span class="info error_pass">密码不合法！</span>
+				<span class="info right_pass">密码可用！</span>
+			</p>
+			<p>
+				<label for="reg_check">确认密码：</label><input id="reg_check"  name="reg_check" type="password">
+				<span class="info info_check">请再输入一次密码!</span>
+				<span class="info error_check">密码不一致，请重新输入！</span>
+				<span class="info right_check">正确Binggo！</span>
+			</p>
+			<p>
+				<label for="reg_ques">提&nbsp; &nbsp; &nbsp; &nbsp;问：</label>
+				<select name="reg_ques" id="reg_ques">
+					<option value="0" class="reg_select">--请选择--</option>
+					<option value="1" class="reg_select">--您的出生地--</option>
+					<option value="2" class="reg_select">--您的电话号码--</option>
+					<option value="3" class="reg_select">--喜欢的偶像--</option>
+					<option value="4" class="reg_select">--爱人的全拼--</option>
+				</select>
+				<span class="info error_ques">未选择问题回答！</span>
+			</p>
+			<p>
+				<label for="reg_ans">答&nbsp; &nbsp; &nbsp; &nbsp;案：</label><input id="reg_ans"  name="reg_ans" type="text">
+				<span class="info info_ans">请输入2-32位答案!</span>
+				<span class="info error_ans">回答不合法，请重新输入！</span>
+				<span class="info right_ans">可用Binggo！</span>
+			</p>
+			<p>
+				<label for="reg_email">电子邮件：</label><input id="reg_email"  name="reg_email" type="text" autocomplete="off">
+				<span class="info info_email">请输入邮件地址!</span>
+				<span class="info error_email">邮件不合法，请重新输入！</span>
+				<span class="info right_email">可用Binggo！</span>
+				<ul class="email_tip">
+					<li class="mouse"><span></span>@qq.com</li>
+					<li class="mouse"><span></span>@163.com</li>
+					<li class="mouse"><span></span>@sina.com</li>
+					<li class="mouse"><span></span>@gmail.com</li>
+					<li class="mouse"><span></span>@soho.com</li>
+				</ul>
+			</p>
+			<p>
+				<label for="reg_year">生 &nbsp; &nbsp; &nbsp;
+			日：</label>
+				<select name="reg_year" id="reg_year" class="reg_date"><option value="0">-年</option></select>
+				<select name="reg_month" id="reg_month" class="reg_date"><option value="0">月</option></select>
+				<select name="reg_day" id="reg_day" class="reg_date"><option value="0">日</option></select>
+			</p>
+			<p class="ps_p">
+				<label class="ps_label" for="reg_ps">备 &nbsp; &nbsp; &nbsp; 注：</label>
+				<textarea id="reg_ps"  name="reg_ps"></textarea>
+				<span class="error_ps">请删除多余的字数！</span>
+			</p>
+			<p class='text_number text_number_1'>还可以输入<span class="number">0</span>字</p>
+			<p class='text_number text_number_2'>已超过<span class="number">0</span>字<span class='text_clear'>清尾</span></p>
+			<input class="reg_reg input_bar" disabled="true" type="button" value="注册">
+			<input class="reg_log input_bar mouse" type="button" value="登录">
+		</form><!-- 注册表单结束 -->
+	</section><!--弹出窗口结束 -->
+
+	<header id="header"><!-- 头文件开始 -->
+		<nav class="width clearfix">
+			<img class="logo" src="images/logo.png" alt="logo">
+			<div class="right_bar"><!-- 头部右边菜单开始 -->
+				<div class="set_bar">个人中心<span></span>
+					<ul class="bar_ul" id="control_bar">
+						<li class="a set">设置</li>
+						<li class="a skin">换肤</li>
+						<li class="a blog">发文</li>
+						<li class="a exit">退出</li>
+					</ul>
+				</div>
+				<span class="login bar">登录</span>
+				<span class="regiter bar">注册</span>
+				<span class="login_success bar"></span>
+			</div><!-- 头部右边菜单结束 -->
+		</nav>
+	</header><!-- 头文件结束 -->
+	
+	<section id="banner"><!-- 广告轮播开始 -->
+		<img src="images/1.jpg" alt="第一张图片show">
+		<img src="images/2.jpg" alt="第二张图片show">
+		<img src="images/3.jpg" alt="第三张图片show">
+		<div class="bar_bg">
+			<span>轮播器</span>
+			<ul>
+				<li class="choose"></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</section><!-- 广告轮播结束 -->
+	
+	<section id="main" class="clearfix">
+		<div class="side_bar">
+			<h2 class="mouse">title-1</h2>
+			<ul>
+				<li><a class="a" href="#">new________a</a></li>
+				<li><a class="a" href="#">new________a</a></li>
+				<li><a class="a" href="#">new________a</a></li>
+				<li><a class="a" href="#">new________a</a></li>
+				<li><a class="a" href="#">new________a</a></li>
+			</ul>
+			<h2 class="mouse">title-2</h2>
+			<ul>
+				<li><a class="a" href="#">new________b</a></li>
+				<li><a class="a" href="#">new________b</a></li>
+				<li><a class="a" href="#">new________b</a></li>
+				<li><a class="a" href="#">new________b</a></li>
+				<li><a class="a" href="#">new________b</a></li>
+			</ul>
+			<h2 class="mouse">title-3</h2>
+			<ul>
+				<li><a class="a" href="#">new________c</a></li>
+				<li><a class="a" href="#">new________c</a></li>
+				<li><a class="a" href="#">new________c</a></li>
+				<li><a class="a" href="#">new________c</a></li>
+				<li><a class="a" href="#">new________c</a></li>
+			</ul>
+			<h2 class="mouse">title-4</h2>
+			<ul>
+				<li><a class="a" href="#">new________c</a></li>
+				<li><a class="a" href="#">new________c</a></li>
+				<li><a class="a" href="#">new________c</a></li>
+				<li><a class="a" href="#">new________c</a></li>
+				<li><a class="a" href="#">new________c</a></li>
+			</ul>
+		</div>
+
+		<div class="main_content">
+			<div class="loading blog_loading">
+		        <span></span>
+		        <span></span>
+		        <span></span>
+		        <span></span>
+		        <span></span>
+			</div>
+		</div>
+		
+		<nav class="main_nav">
+			<ul class="main_black clearfix">
+				<li><a href="#">News</a></li>
+				<li><a href="#">Blog</a></li>
+				<li><a href="#">Elements</a></li>
+				<li><a href="#">Number</a></li>
+				<li><a href="#">About</a></li>
+			</ul>
+			<div class="chose_box">
+				<ul class="main_white clearfix">
+					<li><a href="#">News</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Elements</a></li>
+					<li><a href="#">Number</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+			</div>
+			<ul class="clear_bug">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</nav>
+	</section>
+	
+	<section id="photo" class="main_width clearfix"><!-- 图片展示开始 -->
+		<div id="show_img"><!-- 显示大图开始 -->
+			<h2 id="show_img_h2" class="show_img_h2">图片预加载
+				<img class="rotate show_img_closed" src="images/closed_btn.png" />
+			</h2>
+			<img class="show_img_img" src=" " alt="test">
+			<strong class="sl">&lt;</strong>
+			<strong class="sr">&gt;</strong>
+			<div class="show_left show_bar"></div>
+			<div class="show_right show_bar"></div>
+			<div class="loading show_loading">
+		        <span></span>
+		        <span></span>
+		        <span></span>
+		        <span></span>
+		        <span></span>
+			</div>
+			<em class="show_index">a/b</em>
+		</div><!-- 显示大图结束 -->
+		<div class="img_box">
+			<dl>
+				<dt><img _src="images/photo/photo_1.jpg" _big_src="images/photo/b_1.jpg" src="images/photo/photo_load.jpg" alt="0" /></dt>
+				<dd>延迟加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img _src="images/photo/photo_2.jpg" _big_src="images/photo/b_2.jpg" src="images/photo/photo_load.jpg" alt="1" /></dt>
+				<dd>延迟加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img _src="images/photo/photo_3.jpg" _big_src="images/photo/b_3.jpg" src="images/photo/photo_load.jpg" alt="2" /></dt>
+				<dd>延迟加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img _src="images/photo/photo_4.jpg" _big_src="images/photo/b_4.jpg" src="images/photo/photo_load.jpg" alt="3" /></dt>
+				<dd>延迟加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img _src="images/photo/photo_5.jpg" _big_src="images/photo/b_5.jpg" src="images/photo/photo_load.jpg" alt="4" /></dt>
+				<dd>延迟加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img _src="images/photo/photo_6.jpg" _big_src="images/photo/b_6.jpg" src="images/photo/photo_load.jpg" alt="5" /></dt>
+				<dd>延迟加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img _src="images/photo/photo_7.jpg" _big_src="images/photo/b_7.jpg" src="images/photo/photo_load.jpg" alt="6" /></dt>
+				<dd>延迟加载图片</dd>
+			</dl>
+			<dl>
+				<dt><img _src="images/photo/photo_8.jpg" _big_src="images/photo/b_8.jpg" src="images/photo/photo_load.jpg" alt="7" /></dt>
+				<dd>延迟加载图片</dd>
+			</dl>
+		</div>	
+	</section><!-- 图片展示结束 -->
+	
+	<div id="share_box"><!-- 分享栏开始 -->
+		<div id="share">
+			<h2 class='bar'>分<br/>享</h2>
+			<ul>
+				<li class="mouse"><a class="weixin" href="#"></a></li>
+				<li class="mouse"><a class="weibo" href="#"></a></li>
+			</ul>
+		</div>
+	</div><!-- 分享栏结束 -->
+	
+	<a class="back_top" href="javascript:;"></a>
+
+	<footer>
+		<p class="mouse"> 要旅行 —— 联系我们 </p>
+		<p>&copy;Design Your Travel</p>
+	</footer>
+
+	<script src="js/blog.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/check_form.js" type="text/javascript" charset="UTF-8"></script>
+
+</body>
+</html>
