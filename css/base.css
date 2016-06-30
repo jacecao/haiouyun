@@ -13,51 +13,63 @@ body
 	font-size: 16px;
 	background: #f1f1f1;
 }
-
-@media screen and (min-width: 501px)
+.clearfix::after
+{
+	content: '';
+	display: block;
+	width: 0;
+	visibility: hidden;
+	clear: both;
+}
+@media screen and (min-width: 601px)
 {
 	body
 	{
-		min-width: 800px;
+		width: 100%;
 	}
 	.auto-width
 	{
-		width: 800px;
+		width: 900px;
 		margin: 0 auto;
 	}
 	.header
 	{
-		height: 230px;
+		position: relative;
+		height: 140px;
+		overflow: hidden;
 	}
 	.header-logo
 	{
 		display: block;
-		height: 124px;
+		height: 90px;
 		text-align: center;
 		margin: 20px auto auto 0;
 	}
 
 	.header-nav
 	{
-		width: 246px;
-		height: 40px;
+		/* position: absolute; */
+		width: 210px;
+		height: 20px;
+		/* left: 20px; */
+		/* bottom: -5px; */
+		margin: 13px auto 0 auto;
 		text-align: center;
-		margin: 32px auto;
-		transform: translateY(-10px);
-		animation: navw 2s;
+		transform: translateY(-5px);
+		animation: navw 1.5s;
 	}
 	@keyframes navw
 	{
-		from { transform: translateY(40px);}
-		to { transform: translateY(-10px);}
+		from { transform: translateY(10px);}
+		to { transform: translateY(-5px);}
 	}
 	.header-nav li
 	{
 		float: left;
 		font-size: 1.2em;
-		height: 30px;
-		line-height: 30px;
-		padding: 5px 10px 5px 10px;
+		height: 20px;
+		line-height: 20px;
+		padding: 0 4px;
 		margin: 0;
 		
 	}
@@ -77,55 +89,62 @@ body
 	{
 		width: 47px;
 	}
+	span.border
+	{
+		width: 40%;
+		margin: -5px auto 0 auto;
+	}
 	.header-nav li a .hover-line
 	{
 		display: block;
-		width:0;
-		border-bottom: 1px solid #067594;
-		transform: translateX(50%);
-		-o-transform: translateX(50%);
-		-moz-transform: translateX(50%);
-		-ms-transform: translateX(50%);
-		-webkit-transform: translateX(50%);
-		transition: all 1s;
-		-o-transition: all 1s;
-		-ms-transition: all 1s;
-		-moz-transition: all 1s;
-		-webkit-transition: all 1s;
+		width:inherit;
+		border-bottom: 1px solid #a1a1a1;
+		transform: scaleX(0);
+		-o-transform: scaleX(0);
+		-moz-transform: scaleX(0);
+		-ms-transform: scaleX(0);
+		-webkit-transform: scaleX(0);
+		transition: all 0.5s;
+		-o-transition: all 0.5s;
+		-ms-transition: all 0.5s;
+		-moz-transition: all 0.5s;
+		-webkit-transition: all 0.5s;
 	}
 	.header-nav li:hover .hover-line
 	{
-		width:inherit;
-		transform: translateX(0);
-		-o-transform: translateX(0);
-		-moz-transform: translateX(0);
-		-ms-transform: translateX(0);
-		-webkit-transform: translateX(0);
+		transform: scaleX(1);
+		-o-transform: scaleX(1);
+		-moz-transform: scaleX(1);
+		-ms-transform: scaleX(1);
+		-webkit-transform: scaleX(1);
 	}
-/* 	.header-nav li::after
-	{
-		content:'|';
-		margin-left:10px;
-		display: inline-block;
-		color: #067594;
-	} */
-/* 	.header-nav li:last-child::after
-	{
-		content:'';
-	} 取消掉导航条右侧竖线 */
 
 	.content-box
 	{
 		max-width: 90%;
 	}
+	/************************************ project*************************** */
+	.item-project
+	{
+		width: 100%;
+		margin: 10px auto;
+		/* text-align: center; */
+	}
+	.item-project li
+	{
+		/* display: inline-block; */
+		width: 300px;
+		height: 200px;
+		float: left;
+	}
 
 }
 
-@media screen and (max-width: 500px)
+@media screen and (max-width: 600px)
 {
 	body
 	{
-		min-width: 300px;
+		width: 100%;
 	}
 	.auto-width
 	{
@@ -167,6 +186,30 @@ body
 		width: 240px;
 		margin: 0 auto;
 	}
+	span.border
+	{
+		width: 80%;
+		margin: 0 auto;
+	}
+	.content .item-blog p
+	{
+		font-size: 0.8em;
+		letter-spacing: 2px;
+		line-height: 1.8em;
+	}
+
+	/************************************ project*************************** */
+	.item-project
+	{
+		width: 90%;
+		max-width: 300px;
+		margin: 10px auto;
+	}
+	.item-project li
+	{
+		width: 300px;
+		height: 200px;
+	}
 }
 
 /*********** header **************/
@@ -176,12 +219,18 @@ body
 	text-align: center;
 	overflow: hidden;
 }
-
+span.border
+{
+	display: block;
+	border-bottom: 1px solid #cdcdcd;
+}
+.header-logo
+{
+}
 .header-logo img
 {
-	max-width: 335px;
+	max-width: 240px;
 	min-width: 200px;
-	border-bottom: 1px solid #A6A2A2;
 }
 .header-nav li
 {
@@ -190,7 +239,7 @@ body
 .header-nav li a
 {
 	display: block;
-	color: #777575;
+	color: #D8D8D8;
 	text-align: center;
 	transition: all 1s;
 	-o-transition: all 1s;
@@ -201,8 +250,8 @@ body
 }
 .header-nav li a:hover,.active
 {
-	color: #0CD8F1;
-	background-image: gradient(linear, 0 0, 0 bottom, from(rgba(29, 152, 187, 1)), to(rgba(23, 239, 213, 1)));
+	color: #a1a1a1;
+/* 	background-image: gradient(linear, 0 0, 0 bottom, from(rgba(29, 152, 187, 1)), to(rgba(23, 239, 213, 1)));
 	background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(29, 152, 187, 1)), to(rgba(23, 239, 213, 1)));
 	background-image: -o-gradient(linear, 0 0, 0 bottom, from(rgba(29, 152, 187, 1)), to(rgba(23, 239, 213, 1)));
 	background-image: -moz-gradient(linear, 0 0, 0 bottom, from(rgba(29, 152, 187, 1)), to(rgba(23, 239, 213, 1)));
@@ -212,13 +261,13 @@ body
 	-o-background-clip: text;
 	-moz-background-clip: text;
 	-ms-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	-webkit-text-fill-color: transparent; */
 }
 /******************** content *****************/
 .content
 {
 	text-align: center;
-	margin: 10px auto;
+	margin: 20px auto;
 }
 
 /* ***************** footer ***************/

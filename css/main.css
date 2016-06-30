@@ -1,10 +1,11 @@
+
 .content,.content a
 {
 	color: #777575;
 }
 .content h1
 {
-	font-size: 1.5em;
+	font-size: 1.2em;
 	margin-bottom: 0;
 	
 }
@@ -14,29 +15,52 @@
 }
 .content span
 {
-	font-size: 0.5em;
+	font-size: 0.7em;
 }
-
+.content p
+{
+	font-size: 0.9em;
+	line-height: 1.5em;
+	letter-spacing: 2px;
+	text-indent: 2em;
+	word-break: break-all;
+	color: #777575;
+}
+/* ****************************** blog *************************************** */
 .item-blog
 {
 	width: 80%;
 	margin: 20px auto;
-	overflow: hidden;
 }
+.item-body
+{
+	width: 90%;
+	margin: 0 auto;
+	padding: 5px;
+	overflow: hidden; 
+	transition: all 0.8s;
+	-webkit-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+}
+
 .item-message
 {
 	margin-top: 8px;
 	color: #B4B4B4;
 }
+.item-content
+{
+	margin-top: 20px;
+}
 .item-blog p
 {
 	width: 90%;
-	margin: 10px auto;
+	margin: 0 auto;
 	text-align: left;
-	text-indent: 2em;
 	padding: 10px;
-	word-break: break-all;
-	color: #777575;
+
 }
 
 a.item-button
@@ -45,7 +69,7 @@ a.item-button
 	height: 30px;
 	width: 100px;
 	line-height: 30px;
-	margin: 30px auto 0 auto;
+	margin: 30px auto 10px auto;
 	border-radius: 5px;
 	border: 1px solid #1E9FC4;
 	background: #1E9FC4;
@@ -80,9 +104,75 @@ a.item-button:hover span
 	transform: translateX(6px);
 	color: #1E829F;
 }
+.blog-active
+{
+	box-shadow: 0 0 5px rgba(30,159,190,.8);
+}
 .item-footer div
 {
 	border-bottom: 1px solid #cdcdcd;
 	width: 100px;
-	margin: 80px auto;
+	margin: 50px auto;
+}
+/* ****************************** project *************************************** */
+
+.project-content a
+{
+	display: block;
+	position: relative;
+	width: 280px;
+	height: 180px;
+	margin: 10px;
+	overflow: hidden;
+	background: #EAEAEA url('../img/project_bg.png');
+
+}
+.project-content a.pro_2
+{
+	background-position: 0 -181px;
+}
+.project-content a.pro_3
+{
+	background-position: 0 -362px;
+}
+.project-content a.pro_4
+{
+	background-position: 0 181px;
+}
+.project-message
+{
+	position: absolute;
+	background: rgba(100, 100, 100, 0.8);
+	bottom: 0px;
+	left: 0;
+}
+.project-message h2
+{
+	margin:0;
+	padding: 5px;
+	width: 270px;
+	height: 30px;
+	color: #CAD7D4;
+	line-height: 30px;
+	font-size: 1em;
+	letter-spacing: 3px;
+	text-align:center;
+}
+.project-content p
+{
+	text-align: left;
+	margin: 0;
+	width: 260px;
+	color: #CAD7D4;
+	padding: 5px 10px;
+	text-indent: 0;
+	transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	-webkit-transition: all 0.8s;
+}
+.project-content a:hover
+{
+	box-shadow: 0 0 8px 2px rgba(90,90,90,0.6);
 }
