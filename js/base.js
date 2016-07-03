@@ -18,7 +18,6 @@ define(['jquery'],function($){
           'top' : ( $(window).height() - config._mobile_nav.height() ) / 2,
           'opacity' : 1
         },config._time,function(){
-          console.log(reset);
           reset = true;
           if( callback ){ callback(); }
         });
@@ -30,7 +29,6 @@ define(['jquery'],function($){
           'top' : - config._mobile_nav.height(),
           'opacity' : 0
          }, config._time, function(){
-          console.log(reset);
           reset = false;
           config._mobile_nav.hide();
           if( callback ){ callback(); }
@@ -46,16 +44,18 @@ define(['jquery'],function($){
       var _local = this.config._local;
       var _menu = $('.mobile-nav li a');
         // 显示菜单栏
-        $('.nav-bar').click(function(){
-          _this.show_nav_bar();
-        });
-        //关闭菜单栏
-        _local.click( function(){
-          _this.close_nav_bar();
-        });
-        _menu.click( function(){
-          _this.close_nav_bar();
-        });
+        if( $(window).width() <= 600 ){
+          $('.nav-bar').click(function(){
+            _this.show_nav_bar();
+          });
+          //关闭菜单栏
+          _local.click( function(){
+            _this.close_nav_bar();
+          });
+          _menu.click( function(){
+            _this.close_nav_bar();
+          });
+        }
     }
   };
 

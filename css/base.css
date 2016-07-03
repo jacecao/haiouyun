@@ -33,7 +33,7 @@ body
 		font-style: normal;
 		}
 
-@media screen and (min-width: 701px)
+@media screen and (min-width: 601px)
 {
 	body
 	{
@@ -152,7 +152,7 @@ body
 
 }
 
-@media screen and (max-width: 700px)
+@media screen and (max-width: 600px)
 {
 	body
 	{
