@@ -116,6 +116,34 @@
 			"setIdx": 0,
 			"setId": 1,
 			"iconIdx": 271
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 32l-480 480h288v512h384v-512h288z"
+				],
+				"tags": [
+					"arrow-up",
+					"up",
+					"upload",
+					"top"
+				],
+				"defaultCode": 59954,
+				"grid": 16,
+				"attrs": []
+			},
+			"attrs": [],
+			"properties": {
+				"ligatures": "arrow-up, up",
+				"name": "arrow-up",
+				"order": 6,
+				"id": 307,
+				"prevSize": 32,
+				"code": 59954
+			},
+			"setIdx": 0,
+			"setId": 1,
+			"iconIdx": 306
 		}
 	],
 	"height": 1024,

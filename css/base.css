@@ -180,6 +180,10 @@ body
 	.header-nav
 	{
 		display: none;
+	}
+	.mobile-nav
+	{
+		display: none;
 		position: absolute;
 		width: 240px;
 		background: #1E9FC4;
@@ -187,7 +191,7 @@ body
 		opacity: 0;
 		z-index: 1000;
 	}
-	.header-nav li
+	.mobile-nav li
 	{
 		display: block;
 		font-size: 1.2em;
@@ -195,7 +199,7 @@ body
 		line-height: 30px;
 		padding: 5px;
 	}
-	.header-nav li a
+	.mobile-nav li a
 	{
 		width: 240px;
 		margin: 0 auto;
@@ -245,11 +249,11 @@ span.border
 	max-width: 240px;
 	min-width: 200px;
 }
-.header-nav li
+.header-nav li ,.header-nav li
 {
 	text-align: center;
 }
-.header-nav li a
+.header-nav li a ,.mobile-nav li a
 {
 	display: block;
 	color: #D8D8D8;
@@ -261,7 +265,7 @@ span.border
 	-webkit-transition: all 1s;
 
 }
-.header-nav li a:hover,.header-nav li a.active
+.header-nav li a:hover, .mobile-nav li a:hover,.header-nav li a.active ,.mobile-nav li a.active
 {
 	color: #a1a1a1;
 /* 	background-image: gradient(linear, 0 0, 0 bottom, from(rgba(29, 152, 187, 1)), to(rgba(23, 239, 213, 1)));

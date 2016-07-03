@@ -1,13 +1,18 @@
 require.config({
     paths : {
       "jquery" : "jquery.min"
-    }
-    
+    }   
 });
-
-require(['jquery','renderUI'],function($,renderUI){
+require(['jquery','renderUI','base'],function($,renderUI,Base){
+  
   var render = new renderUI.renderUI();
+  render.set_side_bar();
+  var base = new Base.Base();
+  base.side_bar_hander();
+
   $(window).resize(function(){
-    render.changeBar();
+    render.set_side_bar();
   });
+
+
 });
