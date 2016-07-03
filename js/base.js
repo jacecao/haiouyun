@@ -44,7 +44,7 @@ define(['jquery'],function($){
       var _local = this.config._local;
       var _menu = $('.mobile-nav li a');
         // 显示菜单栏
-        if( $(window).width() <= 600 ){
+        if( $(window).width() <= 920 ){
           $('.nav-bar').click(function(){
             _this.show_nav_bar();
           });

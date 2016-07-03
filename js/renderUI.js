@@ -14,7 +14,7 @@ define(['jquery','base'],function($,base){
   renderUI.prototype = {
     set_side_bar : function(){
       var nav_bar = $('.nav-bar');
-      if( $(window).width() <= 600 ){
+      if( $(window).width() <= 920 ){
         // 初始移动端菜单按钮的基本样式
         nav_bar.html('&#xe9bd;');
         this.mobile_nav.css({
