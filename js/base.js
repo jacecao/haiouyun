@@ -15,7 +15,7 @@ define(['jquery'],function($){
       {
         config._local.show();
         config._mobile_nav.show().animate({
-          'top' : ( $(window).height() - config._mobile_nav.height() ) / 2,
+          'top' : ( $(window).height() - config._mobile_nav.height() ) / 2  + $(window).scrollTop(),
           'opacity' : 1
         },config._time,function(){
           reset = true;

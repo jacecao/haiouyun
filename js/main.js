@@ -4,7 +4,7 @@ require.config({
     }   
 });
 require(['jquery','renderUI','base'],function($,renderUI,Base){
-  
+ 
   var render = new renderUI.renderUI();
   render.set_side_bar();
   var base = new Base.Base();
