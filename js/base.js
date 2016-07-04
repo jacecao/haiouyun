@@ -44,8 +44,11 @@ define(['jquery'],function($){
       var _local = this.config._local;
       var _menu = $('.mobile-nav li a');
         // 显示菜单栏
-        if( $(window).width() <= 920 ){
+        if( $(window).width() <= 903 ){
           $('.nav-bar').click(function(){
+            // 兼容手机横屏状态时，无法启动resize事件
+            $('.mobile-nav').css('left', ( $(window).width() - $('.mobile-nav').width() )/2);
+            // 再执行动画
             _this.show_nav_bar();
           });
           //关闭菜单栏
@@ -55,6 +58,8 @@ define(['jquery'],function($){
           _menu.click( function(){
             _this.close_nav_bar();
           });
+        }else{
+
         }
     }
   };
