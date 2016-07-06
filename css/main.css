@@ -20,7 +20,7 @@
 .content p
 {
 	font-size: 0.9em;
-	line-height: 1.5em;
+	line-height: 1.7;
 	letter-spacing: 2px;
 	text-indent: 2em;
 	word-break: break-all;
@@ -31,6 +31,7 @@
 {
 	width: 80%;
 	margin: 20px auto;
+	overflow: hidden;
 }
 .item-body
 {
@@ -77,7 +78,19 @@ a.item-button
 	font-size: 0.8em;
 	letter-spacing: 2px;
 }
-a.item-button span
+a.a-button
+{
+	display: inline-block;
+}
+a.prev-button
+{
+	float:left;
+}
+a.next-button
+{
+	float:right;
+}
+a.item-button span,a.prev-button span
 {
 	display: inline-block;
 	height: 30px;
@@ -85,6 +98,11 @@ a.item-button span
 	font-size: 1.2em;
 	padding-left: 3px;
 	transform: translateX(0px);
+}
+a.prev-button span
+{
+	padding-left: 0;
+	padding-right: 3px;
 }
 a.item-button,a.item-button span,.content h1 a
 {
@@ -102,6 +120,11 @@ a.item-button:hover
 a.item-button:hover span
 {
 	transform: translateX(6px);
+	color: #1E829F;
+}
+a.prev-button:hover span
+{
+	transform: translateX(-6px);
 	color: #1E829F;
 }
 .blog-active
@@ -175,4 +198,32 @@ a.item-button:hover span
 .project-content a:hover
 {
 	box-shadow: 0 0 8px 2px rgba(90,90,90,0.6);
+}
+
+/* ****************************** side-bar *************************************** */
+
+.side-bar
+{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 270px;
+	background: #eee;
+	-o-transform: translate3d(270px, 0, 0);
+	-ms-transform: translate3d(270px, 0, 0);
+	-moz-transform: translate3d(270px, 0, 0);
+	-webkit-transform: translate3d(270px, 0, 0);
+	transition: all 1s;
+	-o-transition: all 1s;
+	-ms-transition: all 1s;
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;
+}
+.side-bar-active
+{
+	-o-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-webkit-transform: translate3d(0, 0, 0);
 }

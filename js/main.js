@@ -6,11 +6,12 @@ require.config({
 require(['jquery','renderUI','base'],function($,renderUI,Base){
  
   var render = new renderUI.renderUI();
-  render.set_side_bar();
+  render.set_bottom_bar();
   var base = new Base.Base();
-  base.side_bar_hander();
+  base.bottom_bar_hander();
   $(window).resize( function(){
-    render.set_side_bar();
+    render.set_bottom_bar();
+    base.bottom_bar_hander();
   } );
 
 

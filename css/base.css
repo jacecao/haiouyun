@@ -5,6 +5,18 @@ body,html,ul
 	padding: 0;
 	margin: 0;
 }
+body
+{
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-o-transition: all 1s;
+	-ms-transition: all 1s;
+	-moz-transition: all 1s;
+}
+body.padding
+{
+	padding-right: 270px;
+}
 a{ text-decoration:none;}
 ul{ list-style: none;}
 body
@@ -33,12 +45,8 @@ body
 		font-style: normal;
 		}
 
-@media screen and (min-width: 921px)
+@media screen and (min-width: 641px)
 {
-	body
-	{
-		width: 100%;
-	}
 	.auto-width
 	{
 		width: 900px;
@@ -78,7 +86,7 @@ body
 	.header-nav li
 	{
 		float: left;
-		font-size: 1.2em;
+		font-size: 1em;
 		height: 20px;
 		line-height: 20px;
 		padding: 0 4px;
@@ -87,7 +95,7 @@ body
 	}
 	.nav-index
 	{
-		width: 51px;
+		width: 50px;
 	}
 	.nav-blog
 	{
@@ -95,15 +103,15 @@ body
 	}
 	.nav-project
 	{
-		width: 88px;
+		width: 80px;
 	}
 	.nav-hiou
 	{
-		width: 47px;
+		width: 53px;
 	}
 	span.border
 	{
-		width: 40%;
+		width: 50%;
 		margin: -5px auto 0 auto;
 	}
 	.header-nav li a .hover-line
@@ -149,10 +157,16 @@ body
 		height: 200px;
 		float: left;
 	}
+	/* ************   page-blog ********************* */
+	.page_control
+	{
+		width: 500px;
+		margin: 0 auto;
+	}
 
 }
 
-@media screen and (max-width: 920px)
+@media screen and (max-width: 640px)
 {
 	body
 	{
@@ -184,7 +198,7 @@ body
 	.mobile-nav
 	{
 		display: none;
-		position: absolute;
+		position: fixed;
 		width: 240px;
 		background: rgba(30, 159, 196, 0.9);
 		border-radius: 5px ;
@@ -228,6 +242,12 @@ body
 		width: 300px;
 		height: 200px;
 	}
+	/* **************************** page-blog ********************** */
+	.page_control
+	{
+		width: 100%;
+		margin: 0 auto;
+	}
 }
 
 /*********** header **************/
@@ -240,7 +260,7 @@ body
 span.border
 {
 	display: block;
-	border-bottom: 1px solid #cdcdcd;
+	border-bottom: 1px solid #efefef;
 }
 .header-logo
 {
@@ -257,6 +277,7 @@ span.border
 .header-nav li a ,.mobile-nav li a
 {
 	display: block;
+	letter-spacing: 1px;
 	color: #D8D8D8;
 	text-align: center;
 	transition: all 1s;
@@ -297,13 +318,13 @@ span.border
 	right: 0;
 	bottom: 0;
 	z-index: 999;
-	background: rgba(0,0,0,0.15);
+	background: rgba(0,0,0,0.5);
 }
 /* ***************** footer ***************/
 
 .footer
 {
-	
+	border-top: 1px solid #efefef;
 }
 .footer-content
 {
@@ -330,14 +351,14 @@ span.border
 	color: #262626;
 }
 
-/* ************************** side-bar ********************************* */
-.side-bar
+/* ************************** bottom-bar ********************************* */
+.bottom-bar
 {
 	position: fixed;
 	bottom: 15px;
 	right: 15px;
 }
-.side-bar li
+.bottom-bar li
 {
 	height: 40px;
 	width: 40px;
@@ -356,7 +377,7 @@ span.border
 	-ms-transition: all 0.5s;
 	cursor: pointer;
 }
-.side-bar li:hover
+.bottom-bar li:hover
 {
 	opacity: 1;
 	color: #fff;
