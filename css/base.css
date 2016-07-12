@@ -47,6 +47,11 @@ body
 
 @media screen and (min-width: 641px)
 {
+	body
+	{
+		width: 900px;
+		margin: 0 auto;
+	}
 	.auto-width
 	{
 		width: 900px;
