@@ -7,15 +7,15 @@ body,html,ul
 }
 body
 {
-	transition: all 1s;
-	-webkit-transition: all 1s;
-	-o-transition: all 1s;
-	-ms-transition: all 1s;
-	-moz-transition: all 1s;
+	transition: all 0.7s;
+	-webkit-transition: all 0.7s;
+	-o-transition: all 0.7s;
+	-ms-transition: all 0.7s;
+	-moz-transition: all 0.7s;
 }
 body.padding
 {
-	padding-right: 270px;
+	padding-right: 300px;
 }
 a{ text-decoration:none;}
 ul{ list-style: none;}
@@ -60,15 +60,15 @@ body
 	.header
 	{
 		position: relative;
-		height: 140px;
+		height: 149px;
 		overflow: hidden;
 	}
 	.header-logo
 	{
 		display: block;
-		height: 90px;
+		height: 75px;
 		text-align: center;
-		margin: 20px auto auto 0;
+		margin: 45px auto auto 0;
 	}
 
 	.header-nav
@@ -272,8 +272,8 @@ span.border
 }
 .header-logo img
 {
-	max-width: 240px;
-	min-width: 200px;
+	max-width: 200px;
+	min-width: 160px;
 }
 .header-nav li ,.header-nav li
 {
