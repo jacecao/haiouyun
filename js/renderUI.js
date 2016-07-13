@@ -1,8 +1,7 @@
 
 
-define(['jquery','base'],function($,base){
+define(['jquery'],function($){
   function renderUI(){
-    this.base = new base.Base();
     // 加入底部按钮
     this.bottom_bar = $('<div class="bottom-bar"><ul class="menu-ul"><li class="nav-bar"></li></ul></div>').appendTo('body');
     // 加入mobile-nav 移动端菜单
@@ -11,7 +10,8 @@ define(['jquery','base'],function($,base){
     this.mobile_nav.html( nav );
     // 加入遮罩
     this.local = $('<div class="local"></div>').appendTo('body');
-    // this.base.set_bottom_bar();
+    // 居中侧边栏
+    this.set_side_bar();
   }
   renderUI.prototype = {
     set_bottom_bar : function(){
@@ -25,8 +25,16 @@ define(['jquery','base'],function($,base){
         });
       }else{
         nav_bar.html('&#xe9ba;');
-        this.mobile_nav.hide();
+        // this.mobile_nav.hide();
+        // this.local.hide();
       }
+    },
+    set_side_bar : function(){
+      // 居中侧边栏
+      $('.list').css({
+        'left': ( $('.side-bar').width() - $('.list').width() )/2 ,
+        'top': ( $(window).height() - $('.list').height() )/2 
+      });
     }
   };
 
