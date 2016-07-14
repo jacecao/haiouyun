@@ -168,6 +168,18 @@ body
 		width: 500px;
 		margin: 0 auto;
 	}
+	/* **************  side-bar ************************** */
+	.blog-tag li
+	{
+		height: 30px;
+	}
+	.blog-tag li a
+	{
+		height: 30px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
 
 }
 
@@ -252,6 +264,24 @@ body
 	{
 		width: 100%;
 		margin: 0 auto;
+	}
+	/* *******************************side-bar**************** */
+	.side-bar
+	{
+		z-index: 1000;
+	}
+	.title-tip
+	{
+		z-index: 1100;
+	}
+	.blog-tag li
+	{
+		height: auto;
+	}
+	.blog-tag li a
+	{
+		word-break: normal;
+    	word-wrap: break-word;
 	}
 }
 

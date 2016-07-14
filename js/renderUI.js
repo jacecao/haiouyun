@@ -12,6 +12,8 @@ define(['jquery'],function($){
     this.local = $('<div class="local"></div>').appendTo('body');
     // 居中侧边栏
     this.set_side_bar();
+    //给文章列表加入提示信息
+    // this.title_tip = $('<p class="title-tip"></p>').appendTo('.side-box');
   }
   renderUI.prototype = {
     set_bottom_bar : function(){
@@ -25,8 +27,8 @@ define(['jquery'],function($){
         });
       }else{
         nav_bar.html('&#xe9ba;');
-        // this.mobile_nav.hide();
-        // this.local.hide();
+        this.mobile_nav.hide();
+        this.local.hide();
       }
     },
     set_side_bar : function(){
@@ -35,6 +37,15 @@ define(['jquery'],function($){
         'left': ( $('.side-bar').width() - $('.list').width() )/2 ,
         'top': ( $(window).height() - $('.list').height() )/2 
       });
+      //加入提示框
+      if( $(window).width() <= 623 ){
+        if( $('.title-tip') != undefined )
+        {
+          $('.title-tip').remove();
+        }
+      }else{
+        $('<p class="title-tip"></p>').appendTo('.side-box');
+      }
     }
   };
 

@@ -211,6 +211,7 @@ a.prev-button:hover span
 	width: 300px;
 	background: #eee;
 	border-left: 1px solid #d4d4d4;
+	transform: translate3d(300px, 0, 0);
 	-o-transform: translate3d(300px, 0, 0);
 	-ms-transform: translate3d(300px, 0, 0);
 	-moz-transform: translate3d(300px, 0, 0);
@@ -223,6 +224,7 @@ a.prev-button:hover span
 }
 .side-bar-active
 {
+	transform: translate3d(0, 0, 0);
 	-o-transform: translate3d(0, 0, 0);
 	-ms-transform: translate3d(0, 0, 0);
 	-moz-transform: translate3d(0, 0, 0);
@@ -231,6 +233,7 @@ a.prev-button:hover span
 .side-box
 {
 	position: relative;
+	width: 100%;
 	height: inherit;
 	width: inherit;
 }
@@ -303,19 +306,22 @@ a.prev-button:hover span
 .blog-tag li
 {
 	display: block;
-	position: relative;
-	height: 30px;
+/* 	position: relative; */
+	/* height: 30px; */
 	width: 90%;
-	overflow: hidden;
 	margin: 0 auto;
 }
 .blog-tag li a
 {
 	display: block;
-	height: 30px;
+	/* height: 30px; */
 	line-height: 30px;
+	width: 100%;
 	text-align: left;
 	color: #8C8C8C;
+	/* overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis; */
 }
 .blog-tag li a:visited
 {
@@ -327,16 +333,16 @@ a.prev-button:hover span
 	text-decoration: underline;
 	color: #1E9FC4;
 }
-.blog-tag li p
+.title-tip
 {
 	display: none;
 	position: absolute;
 	width: 90%;
-	top: 10px;
+	left: -260px;
 	padding: 10px;
-	opacity: 0;
 	border: 1px solid #98d8ea;
 	border-radius: 5px;
+	box-shadow: 0 0 3px 3px rgba(102,216,255,0.19);
 	word-break: break-all;
 	background: #eee;
 	color: #8c8c8c;

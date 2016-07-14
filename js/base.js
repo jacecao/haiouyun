@@ -23,7 +23,7 @@ define(['jquery','renderUI'],function($,renderUI){
         },config._time,function(){
           reset = true;
           if( callback ){ callback(); }
-        }).show();//注意需要把.show()要放在.animate()后面这样防止菜单不出现的BUG
+        }).show();
       }
     };  
     this.close_nav_bar = function( callback ){
@@ -34,11 +34,12 @@ define(['jquery','renderUI'],function($,renderUI){
          }, config._time, function(){
           reset = false;
           config._mobile_nav.hide();
+          config._local.hide();
           if( callback ){ callback(); }
-         });
-         config._local.hide();
+         }); 
       } 
     };
+
   }    
 
   Base.prototype={
@@ -89,6 +90,55 @@ define(['jquery','renderUI'],function($,renderUI){
       _menu_a.bind( evt, function(){
         _this.close_nav_bar();
       }); 
+    },
+    title_tip : function(){
+      $('.tag-list li').hover( function(){
+        var _info = $(this).find('a').html();
+        var _top = $(this).find('a').offset().top - ( $('.title-tip').height() / 2 ) - $(window).scrollTop();
+        $('.title-tip').css('top',_top).html( _info ).fadeIn('fast');
+      } , function(){
+        $('.title-tip').fadeOut('fast');
+      } );
+    },
+    //移动端划出菜单
+    slip_side_bar : function(){
+      var opt = {
+        start_time : null,
+        end_time : null,
+        start_x : null,
+        end_x : null
+      };
+      $('body').bind( 'touchstart' , function(){
+        // event.preventDefault();
+        opt.start_time = new Date() * 1;//转化为数字
+        opt.start_x = event.touches[0].pageX;
+      });
+      $('body').bind( 'touchmove' , function(){
+        opt.end_x = Math.floor(event.touches[0].pageX - opt.start_x );
+        if( opt.end_x < 0 && opt.end_x > -200 )
+        {
+          $('.local').fadeIn();
+          $('.side-bar').css( 'transform' , 'translate3d('+ (-opt.end_x) +'px, 0, 0)');
+        }
+      });
+      $('body').bind( 'touchend' , function(){
+        // event.preventDefault();
+        opt.end_time = new Date() * 1;
+        var _time = opt.end_time - opt.start_time;
+        if( _time >= 500 || opt.end_x <= -50){
+          $('.side-bar').css( 'transform' , 'translate3d(0, 0, 0)');
+        }else if( opt.end_x >= 10 || opt.end_x >= 50 ){
+          $('.local').fadeOut('fast');
+          $('.side-bar').css( 'transform' , 'translate3d(300px, 0, 0)');
+        }
+      });
+      $(window).bind('touchend',function(){
+        if( event.target.className === 'local' )
+        {
+          $('.local').fadeOut('fast');
+          $('.side-bar').css( 'transform' , 'translate3d(300px, 0, 0)');
+        }
+      });
     }
   };
 
