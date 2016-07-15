@@ -251,6 +251,7 @@ a.prev-button:hover span
 {
 	border-bottom: 2px solid #d4d4d4;
 	padding-bottom: 14px;
+	font-weight: lighter;
 }
 .list-ul
 {
@@ -278,19 +279,13 @@ a.prev-button:hover span
     -ms-transform-origin: center 20%;
     -moz-transform-origin: center 20%;
     -webkit-transform-origin: center 20%;
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -moz-transition: all 0.5s;
 }
-.triangle-click
+.triangle-closed
 {
     transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
@@ -299,9 +294,19 @@ a.prev-button:hover span
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
 }
+.triangle-open
+{
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+}
 .blog-tag ul
 {
-	/* display: none; */
+	overflow: hidden;
+	width: 100%;
 }
 .blog-tag li
 {

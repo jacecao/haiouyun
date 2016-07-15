@@ -91,11 +91,15 @@ define(['jquery','renderUI'],function($,renderUI){
         _this.close_nav_bar();
       }); 
     },
+    //pc端标题全展示
     title_tip : function(){
       $('.tag-list li').hover( function(){
-        var _info = $(this).find('a').html();
-        var _top = $(this).find('a').offset().top - ( $('.title-tip').height() / 2 ) - $(window).scrollTop();
-        $('.title-tip').css('top',_top).html( _info ).fadeIn('fast');
+        if( event.target.nodeName.toLowerCase() === 'a' )
+        {
+          var _info = $(this).find('a').html();
+          var _top = $(this).find('a').offset().top - ( $('.title-tip').height() / 2 ) - $(window).scrollTop();
+          $('.title-tip').css('top',_top).html( _info ).fadeIn('fast');
+        } 
       } , function(){
         $('.title-tip').fadeOut('fast');
       } );
@@ -125,9 +129,9 @@ define(['jquery','renderUI'],function($,renderUI){
         // event.preventDefault();
         opt.end_time = new Date() * 1;
         var _time = opt.end_time - opt.start_time;
-        if( _time >= 500 || opt.end_x <= -50){
+        if( _time >= 500 && opt.end_x <= -100){
           $('.side-bar').css( 'transform' , 'translate3d(0, 0, 0)');
-        }else if( opt.end_x >= 10 || opt.end_x >= 50 ){
+        }else if( opt.end_x >= 50 || _time <= 500 ){
           $('.local').fadeOut('fast');
           $('.side-bar').css( 'transform' , 'translate3d(300px, 0, 0)');
         }
@@ -138,6 +142,16 @@ define(['jquery','renderUI'],function($,renderUI){
           $('.local').fadeOut('fast');
           $('.side-bar').css( 'transform' , 'translate3d(300px, 0, 0)');
         }
+      });
+    },
+    //伸缩标题列表
+    li_title : function(){
+      var render = this.render;
+      $('.blog-tag').click( function(){
+        var _this = $(this);
+        $(this).find('.tag-list').toggle('normal' ,function(){
+          render.check_tag_list( $(this) , _this );
+        });
       });
     }
   };

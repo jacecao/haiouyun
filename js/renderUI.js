@@ -12,6 +12,7 @@ define(['jquery'],function($){
     this.local = $('<div class="local"></div>').appendTo('body');
     // 居中侧边栏
     this.set_side_bar();
+    this.check_tag_list( $('.tag-list') , $('.blog-tag') );
     //给文章列表加入提示信息
     // this.title_tip = $('<p class="title-tip"></p>').appendTo('.side-box');
   }
@@ -45,6 +46,22 @@ define(['jquery'],function($){
         }
       }else{
         $('<p class="title-tip"></p>').appendTo('.side-box');
+      }
+    },
+    check_tag_list : function( ele , father_ele ){
+      //检测标题列表开关状态
+      if( ele.css('display') == 'none' ){
+        if( father_ele.find('.triangle').hasClass('triangle-open') )
+        {
+          father_ele.find('.triangle').removeClass('triangle-open');
+        }
+        father_ele.find('.triangle').addClass('triangle-closed');
+      }else{
+        if( father_ele.find('.triangle').hasClass('triangle-closed') )
+        {
+          father_ele.find('.triangle').removeClass('triangle-closed');
+        }
+        father_ele.find('.triangle').addClass('triangle-open');
       }
     }
   };
