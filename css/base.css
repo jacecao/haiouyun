@@ -143,10 +143,22 @@ body
 		-ms-transform: scaleX(1);
 		-webkit-transform: scaleX(1);
 	}
-
+	/******************** content *****************/
+	#blog-list
+	{
+		margin: 80px auto;
+	}
 	.content-box
 	{
 		max-width: 90%;
+	}
+	.item-content p
+	{
+		letter-spacing: 4px;
+	}
+	.item-description p
+	{
+		letter-spacing: 2px;
 	}
 	/************************************ project*************************** */
 	.item-project
@@ -168,6 +180,7 @@ body
 		width: 500px;
 		margin: 0 auto;
 	}
+<<<<<<< HEAD
 	/* **************  side-bar ************************** */
 	.blog-tag li
 	{
@@ -180,6 +193,8 @@ body
 		white-space: nowrap;
 		text-overflow: ellipsis;
 	}
+=======
+>>>>>>> origin/master
 
 }
 
@@ -240,10 +255,15 @@ body
 		width: 80%;
 		margin: 15px auto 0 auto;
 	}
+	/******************** content *****************/
+	#blog-list
+	{
+		margin: 40px auto;
+	}
 	.content .item-blog p
 	{
 		font-size: 0.8em;
-		letter-spacing: 2px;
+		letter-spacing: 3px;
 		line-height: 1.8em;
 	}
 	/************************************ project*************************** */
@@ -265,6 +285,7 @@ body
 		width: 100%;
 		margin: 0 auto;
 	}
+<<<<<<< HEAD
 	/* *******************************side-bar**************** */
 	.side-bar
 	{
@@ -283,6 +304,8 @@ body
 		word-break: normal;
     	word-wrap: break-word;
 	}
+=======
+>>>>>>> origin/master
 }
 
 /*********** header **************/
@@ -337,11 +360,14 @@ span.border
 	-ms-background-clip: text;
 	-webkit-text-fill-color: transparent; */
 }
-/******************** content *****************/
 .content
 {
 	text-align: center;
 	margin: 20px auto;
+}
+#blog-list
+{
+	width: 100%;
 }
 /* ****************** local **************** */
 .local

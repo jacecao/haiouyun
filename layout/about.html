@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>海鸥-HioU</title>
+    <link rel="icon" href="../img/title_logo.PNG" type="img/gif" />
+    <link href="../css/base.css" type="text/css" rel="stylesheet" />
+    <link href="../css/main.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <header class="auto-width header">
+      <a href="http://www.haiouyun.com" class="header-logo"><img src="../img/header_logo.png" alt="logo" /></a>
+      <ul class="header-nav">
+          <li><a class="nav-index" href="http://www.haiouyun.com">index<span class="hover-line"></span></a></li>
+          <li><a class="nav-project" href="layout/project.html">project<span class="hover-line"></span></a></li>
+          <li><a class="nav-hiou" href="#">HioU<span class="hover-line"></span></a></li>
+      </ul>
+      <span class="border"></span>
+  </header>
+  
+  <div class="auto-width content">
+    <div class="show-page">
+      <ul class="show-ul">
+        <li>
+          <div class="photo-box"></div>
+          <span class="show-h1">曹海鸥</span>
+          <div class="show-pre">
+              <p>“无论你遇见谁，他都是你生命里该出现的人，绝非偶然，他一定会教会你一些什么。”所以我也相信：无论我走到哪里，那都是我该去的地方，经历一些我该经历的事，遇见我该遇见的人。</p>
+          </div>
+          <span>小时候曾与代码有一面之缘</span>
+          <span>如今再见代码—有种灯火阑珊处的感慨</span>
+          <span>创造的激情和可贵的青春不可辜负</span>
+          <span>目前正在寻求一份前端开发工作</span>
+        </li>
+        <li>
+          <h3>项目经验</h3>
+          <span>项目演示可以点击<a href="/projects/">项目演示</a>菜单查看,简述如下</span>
+          <div class="project-decration">
+            <h3>2048游戏制作</h3>
+            <dl>
+              <dt><p>项目简介</p></dt>
+              <dd><p>该项目是依靠jquery库实现，并兼容PC端和移动端,整个UI由Canvas实现</p></dd>
+            </dl>
+            <dl>
+              <dt><p>项目核心</p></dt>
+              <dd>
+                <ol>
+                  <li><p>UI在游戏进行中的绘制逻辑</p></li>
+                  <li><p>相同数字累加过程中，如何避免相同数一次性完成相加，这里需要结合简单的碰撞检测手段来实现逐个相加</p></li>
+                  <li><p>对整个棋盘因子的检测，通过检测实现2个主要功能：是否有空的2个位置？是否还有相邻相同值可加？</p></li>
+                  <li><p>实现移动端事件交互，这里需要对touch事件熟悉（touches）,同时需要禁用滑动默认事件</p></li>
+                  <li><p>实现PC端的键盘交互事件（keycode、keyevent）</p></li>
+                </ol>
+              </dd>
+            </dl>
+            <a href=""><span>2048</span>—<span>Github源码地址</span></a>
+          </div>
+          <div class="project-decration">
+            <h3>Web-reader网页阅读器</h3>
+            <dl>
+              <dt><p>项目简介</p></dt>
+              <dd><p>该项目是依靠zepto库开发的一个网页阅读界面，兼容PC端和移动端，该项目主要是通过组件开发思路来完成整体开发</p></dd>
+            </dl>
+            <dl>
+              <dt><p>项目核心</p></dt>
+              <dd>
+                <ol>
+                  <li><p>页面架构的建立，主要是对呼出菜单部分的理解</p></li>
+                  <li><p>HTML5本地储存技术，localStorage.setItem/.getItem的使用</p></li>
+                  <li><p>数据交互，通过$.jsonp()获取原始数据并解析，再通过$.get()拿到本地进行数据初始渲染</p></li>
+                  <li><p>完全模拟实际开发环境，准确获取用户设置信息并加入初始页面渲染中</p></li>
+                  <li><p>在文字大小发生变化时UI的控制</p></li>
+                </ol>
+              </dd>
+            </dl>
+            <a href=""><span>Web-reader</span>—<span>Github源码地址</span></a>
+          </div>
+          <div class="project-decration">
+            <h3>博客系统主页开发</h3>
+            <dl>
+              <dt><p>项目简介</p></dt>
+              <dd><p>该项目是通过原生JS建立相对完善的开发工具库，通过该库完成整个博客主页面的开发工作，由原生CSS完成网站的UI</p></dd>
+            </dl>
+            <dl>
+              <dt><p>项目核心</p></dt>
+              <dd>
+                <ol>
+                  <li><p>由原生JS代码构建开发工具库，实现DOM操作、ajax通信、animate动画</p></li>
+                  <li><p>网页图片的预加载和延迟加载</p></li>
+                  <li><p>构建比较完整的登陆、注册、本地验证开发</p></li>
+                  <li><p>在构建工具库过程中感谢李炎恢的视频指导，得以对Jquery有了较深的认识</p></li>
+                  <li><p>通过对php、mysql简单开发，组建后端数据结构和传输</p></li>
+                  <li><p>通过Cookie来记录用户的使用状态</p></li>
+                </ol>
+              </dd>
+            </dl>
+            <a href=""><span>博客主页</span>—<span>Github源码地址</span></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <footer class="auto-width footer">
+      <div class="footer-content">
+          <p class="footer_pic"><img src="../img/header_pic.png" alt="a4" /></p>
+          <p>感谢</p>
+          <p><a href="http://www.imooc.com" target="_blank" alt="慕课网">慕课网</a>免费学习平台!</p>
+          <p><a href="http://www.ycku.com/" target="_blank" alt="瓢城Web俱乐部">李炎恢</a>发布的《javascript教程》</p>
+          <p><a href="http://www.github.com/" target="_blank" alt="github">GitHub</a> | <a href="http://jekyll.bootcss.com/" target="_blank" alt="github">jekyll</a>的技术支持！</p>
+      </div>
+  </footer>
+  
+  <script src="../js/require.js" data-main="../js/main"></script>
+
+</body>
+</html>
