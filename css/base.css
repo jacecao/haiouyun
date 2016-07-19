@@ -423,6 +423,7 @@ span.border
 {
 	height: 40px;
 	width: 40px;
+	margin-bottom: 5px;
 	font-family: 'icomoon';
 	opacity: 0.7;
 	background: #1e9fc4;
@@ -437,6 +438,10 @@ span.border
 	-moz-transition: all 0.5s;
 	-ms-transition: all 0.5s;
 	cursor: pointer;
+}
+.bottom-bar li:last-child
+{
+	margin-bottom: 0;
 }
 .bottom-bar li:hover
 {

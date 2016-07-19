@@ -144,14 +144,18 @@ define(['jquery','renderUI'],function($,renderUI){
         }
       });
     },
-    //伸缩标题列表
+    //开关标题列表
     li_title : function(){
       var render = this.render;
       $('.blog-tag').click( function(){
-        var _this = $(this);
-        $(this).find('.tag-list').toggle('normal' ,function(){
-          render.check_tag_list( $(this) , _this );
-        });
+        if( event.target.className === 'blog-tag' ){
+          var _this = $(this);
+          if( $(this).find('.tag-list').length != 0 ){
+            $(this).find('.tag-list').toggle('normal' ,function(){
+              render.check_tag_list( $(this) , _this );
+            });
+          }
+        } 
       });
     }
   };

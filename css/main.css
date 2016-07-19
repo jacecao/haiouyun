@@ -292,6 +292,10 @@ a.prev-button:hover span
 	font-size: 0.8em;
 	cursor: pointer;
 }
+.blog-tag:hover,.blog-tag-active
+{
+	color: #00c7ff;
+}
 /* 小三角形triangle */
 .triangle
 {
@@ -344,23 +348,19 @@ a.prev-button:hover span
 	width: 90%;
 	margin: 0 auto;
 }
-.blog-tag li a
+.blog-tag li a,.tag-list li
 {
 	display: block;
 	/* height: 30px; */
 	line-height: 30px;
 	width: 100%;
 	text-align: left;
-	color: #8C8C8C;
+	color: #c7c7c7;
 	/* overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis; */
 }
-.blog-tag li a:visited
-{
-	text-decoration: underline;
-	color: #c7c7c7;
-}
+
 .blog-tag li a:hover
 {
 	text-decoration: underline;
@@ -439,7 +439,7 @@ a.prev-button:hover span
 	font-size: 0.8em;
 	letter-spacing: 2px;
 }
-span.show-h1
+span.show-h3
 {
 	font-size: 1em;
 }
@@ -470,11 +470,18 @@ span.show-h1
 	box-shadow: 0 0 4px 4px rgba(0,0,0,0.08);
 
 }
-.project-decration h3
+.project-decration h4
 {
 	padding: 10px;
 	background: #eee;
 	letter-spacing: 4px;
+	/* text-shadow: 1px 1px #8aa1a6; */
+	color: #ccc;
+}
+.show-ul li h3
+{
+	letter-spacing: 4px;
+	color: #ccc;
 }
 .project-decration dl
 {
