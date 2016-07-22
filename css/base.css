@@ -448,3 +448,7 @@ span.border
 	opacity: 1;
 	color: #fff;
 }
+.back-top
+{
+	display: none;
+}

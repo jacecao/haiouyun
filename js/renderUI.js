@@ -136,11 +136,10 @@ define(['jquery','tool'],function( $, Tool ){
     },
     side_bar_title_position : function( targetEle ){
       var _this = this;
-      var getTop = $(window).scrollTop();
-      $(window).scroll(function(){
-        getTop = $(window).scrollTop();
-      });
-
+      // var getTop = $(window).scrollTop();
+      // $(window).scroll(function(){
+      //   getTop = $(window).scrollTop();
+      // });
       targetEle.find('li').each( function( index,ele )
       {
           if( $(ele).attr('data-top') != undefined )
@@ -152,14 +151,6 @@ define(['jquery','tool'],function( $, Tool ){
                 target : target,
               });
             });
-            //当滚动高度到达目标点是增加样式
-            // if( target >= getTop && getTop <= ($(ele).height()-80) )
-            // {
-            //   $(ele).addClass('blog-tag-active');
-            // }else{
-            //   $(ele).removeClass('blog-tag-active');
-            // }
-
           }
       });      
     },
@@ -185,9 +176,9 @@ define(['jquery','tool'],function( $, Tool ){
       var change = function(){
         if( $(window).scrollTop() > 800 )
         {
-          $('.back-top').show();
+          $('.back-top').fadeIn();
         }else{
-          $('.back-top').hide();
+          $('.back-top').fadeOut();
         }
       };
       change();
@@ -199,6 +190,14 @@ define(['jquery','tool'],function( $, Tool ){
         });
       } );
     }
+  
+
+
+
+
+
+
+
   };
 
 
