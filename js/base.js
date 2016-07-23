@@ -110,37 +110,51 @@ define(['jquery','renderUI'],function($,renderUI){
         start_time : null,
         end_time : null,
         start_x : null,
-        end_x : null
+        end_x : null,
+        open : false, //记录侧边栏打开状态，侧边打开后将不再执行滑动操作
+        do : false //防止其他事件的误触，作用是只有有效滑动产生式，才会执行滑动操作
       };
-      $('body').bind( 'touchstart' , function(){
+      $(window).bind( 'touchstart' , function(){
         // event.preventDefault();
         opt.start_time = new Date() * 1;//转化为数字
         opt.start_x = event.touches[0].pageX;
+        console.log('start');
       });
-      $('body').bind( 'touchmove' , function(){
+      $(window).bind( 'touchmove' , function(){
         opt.end_x = Math.floor(event.touches[0].pageX - opt.start_x );
-        if( opt.end_x < 0 && opt.end_x > -200 )
+        if( opt.end_x < -20 && opt.end_x > -300 )
         {
-          $('.local').fadeIn();
-          $('.side-bar').css( 'transform' , 'translate3d('+ (-opt.end_x) +'px, 0, 0)');
+          console.log('move');
+          $('.side-bar').css( 'transform' , 'translate3d('+ (300+opt.end_x) +'px, 0, 0)');
+          opt.do = true;
         }
       });
-      $('body').bind( 'touchend' , function(){
-        // event.preventDefault();
+      $(window).bind( 'touchend' , function(){
+        
         opt.end_time = new Date() * 1;
         var _time = opt.end_time - opt.start_time;
-        if( _time >= 500 && opt.end_x <= -100){
-          $('.side-bar').css( 'transform' , 'translate3d(0, 0, 0)');
-        }else if( opt.end_x >= 50 || _time <= 500 ){
-          $('.local').fadeOut('fast');
-          $('.side-bar').css( 'transform' , 'translate3d(300px, 0, 0)');
-        }
+
+        if( !opt.open && opt.do ){//当opt.open为真是表示侧边栏已经打开，不再执行这里的函数，否则就会有BUG
+          console.log('end');
+          if( _time >= 500 || opt.end_x <= -100){
+            $('.local').fadeIn();
+            $('.side-bar').css( 'transform' , 'translate3d(0, 0, 0)');
+            opt.open = true;
+          }else if( opt.end_x >= 90 || _time <= 500 ){
+            $('.side-bar').css( 'transform' , 'translate3d(300px, 0, 0)');
+            opt.do = false; 
+          }
+
+        }  
+
       });
       $(window).bind('touchend',function(){
         if( event.target.className === 'local' )
         {
           $('.local').fadeOut('fast');
           $('.side-bar').css( 'transform' , 'translate3d(300px, 0, 0)');
+          opt.open = false;
+          opt.do = false;
         }
       });
     },

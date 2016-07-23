@@ -5,6 +5,14 @@ define(['jquery','tool'],function( $, Tool ){
 
   function renderUI(){
     this.tool = new Tool.Tool();
+    //加入hover——动画
+    this.tool.hover_animate({
+      parent : '.project-message',
+      show : 'h2',
+      hover_show : 'p',
+      type: 'toTop',
+      eventTarget : '.project-content>a'
+    });
     // 加入底部按钮
     this.render_bottom_bar({
       num : 1,
@@ -20,7 +28,8 @@ define(['jquery','tool'],function( $, Tool ){
     this.local = $('<div class="local"></div>').appendTo('body');
     // 居中侧边栏
     this.set_side_bar();
-    this.updata_side_bar($('#show-ul'));
+    // 获取侧边栏数据
+    this.updata_side_bar($('#show-ul'),'本页导航栏');
     this.check_tag_list( $('.tag-list') , $('.blog-tag') );
     this.side_bar_title_position($('.list-ul'));
     //给文章列表加入提示信息
@@ -88,7 +97,7 @@ define(['jquery','tool'],function( $, Tool ){
         'top': ( $(window).height() - $('.list').height() )/2 
       });
     },
-    updata_side_bar: function( targetEle ){
+    updata_side_bar: function( targetEle, title ){
       //侧边栏初始数据设置 ,targetEle数据来源目标
       if( targetEle.length != 0 ){
         var _length =  targetEle.find('.about-li').length;
@@ -129,6 +138,9 @@ define(['jquery','tool'],function( $, Tool ){
           }
         }
         $('.list-ul').html('');
+        if( title ){
+          $('.list>h3').html( title );
+        }
         $(_html).appendTo('.list-ul');
       }else{
         console.log('agruments is null');
